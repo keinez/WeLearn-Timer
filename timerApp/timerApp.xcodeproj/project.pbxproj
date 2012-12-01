@@ -231,9 +231,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		43CBFEC41621E0A700AA1616 /* timerApp */ = {
+		43CBFEC41621E0A700AA1616 /* WeMP Timer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43CBFEFB1621E0A700AA1616 /* Build configuration list for PBXNativeTarget "timerApp" */;
+			buildConfigurationList = 43CBFEFB1621E0A700AA1616 /* Build configuration list for PBXNativeTarget "WeMP Timer" */;
 			buildPhases = (
 				43CBFEC11621E0A700AA1616 /* Sources */,
 				43CBFEC21621E0A700AA1616 /* Frameworks */,
@@ -243,7 +243,7 @@
 			);
 			dependencies = (
 			);
-			name = timerApp;
+			name = "WeMP Timer";
 			productName = timerApp;
 			productReference = 43CBFEC51621E0A700AA1616 /* timerApp.app */;
 			productType = "com.apple.product-type.application";
@@ -288,7 +288,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				43CBFEC41621E0A700AA1616 /* timerApp */,
+				43CBFEC41621E0A700AA1616 /* WeMP Timer */,
 				43CBFEE81621E0A700AA1616 /* timerAppTests */,
 			);
 		};
@@ -369,7 +369,7 @@
 /* Begin PBXTargetDependency section */
 		43CBFEEF1621E0A700AA1616 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43CBFEC41621E0A700AA1616 /* timerApp */;
+			target = 43CBFEC41621E0A700AA1616 /* WeMP Timer */;
 			targetProxy = 43CBFEEE1621E0A700AA1616 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -537,7 +537,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43CBFEFB1621E0A700AA1616 /* Build configuration list for PBXNativeTarget "timerApp" */ = {
+		43CBFEFB1621E0A700AA1616 /* Build configuration list for PBXNativeTarget "WeMP Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43CBFEFC1621E0A700AA1616 /* Debug */,
