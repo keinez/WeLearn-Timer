@@ -22,10 +22,11 @@
 @synthesize table = _table;
 @synthesize laps = _laps;
 @synthesize lapButton = _lapButton;
+@synthesize navBar = _navBar;
 
 -(void)viewDidLoad{
-    self.timerRunning = NO;
     self.table.dataSource = self;
+    self.navBar.delegate = self;
     self.laps = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
@@ -34,12 +35,16 @@
     
     if (!self.timerRunning){
         self.timerRunning = YES;
+        [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
+        self.lapButton.hidden = NO;
         addClock = YES;
         self.reference = [[NSDate alloc] init];
         [self createTimer];
     }
     else{
         self.timerRunning = NO;
+        [self.lapButton setTitle:@"Reset" forState:UIControlStateNormal];
+        self.lapButton.hidden = NO;
         clockTime = plusTime;
         self.reference = nil;
         [self displayTime:clockTime];
@@ -49,6 +54,7 @@
 - (IBAction)resetPressed:(id)sender {
     if (!self.timerRunning){
         clockTime = 0;
+        self.lapButton.hidden = YES;
         [self.laps removeAllObjects];
         [self.table reloadData];
         [self displayTime:clockTime];
@@ -84,15 +90,7 @@
     
 }
 
-- (void) displayTime: (NSTimeInterval)time{
-    // Divide the interval by 3600 and keep the quotient and remainder
-    div_t h = div(time, 3600);
-    int hours = h.quot;
-    // Divide the remainder by 60; the quotient is minutes, the remainder
-    // is seconds.
-    div_t m = div(h.rem, 60);
-    int minutes = m.quot;
-    int seconds = m.rem;
+- (void) displayTime: (NSTimeInterval)time {
     int hundredths = (int)(time*10) % (int)10;
     
     NSString *currentTime = [NSString stringWithFormat:@"%02li:%02li:%02li.%d",
@@ -101,15 +99,14 @@
                              lround(floor(time)) % 60,
                              hundredths];
     
-    NSLog(@"%d:%d:%d", hours, minutes, seconds);
-    
-    self.clockButton.titleLabel.text = currentTime;
+    [self.clockButton setTitle:currentTime forState:UIControlStateNormal];
 }
 
 - (void)viewDidUnload {
     [self setClockButton:nil];
     [self setTable:nil];
     [self setLapButton:nil];
+    [self setNavBar:nil];
     [super viewDidUnload];
 }
 
@@ -133,9 +130,18 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Lap #%d", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Lap %d", indexPath.row+1];
     cell.detailTextLabel.text = [self.laps objectAtIndex:indexPath.row];
     
     return cell;
 }
+
+//**************************Tab Bar Delegate Methods************
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    if ([item.title isEqualToString: @"Timer"]){
+        [self performSegueWithIdentifier:@"TimerSegue" sender:self];
+    }
+}
+
 @end
