@@ -39,6 +39,7 @@
 - (PocketsphinxController *)pocketsphinxController {
 	if (pocketsphinxController == nil) {
 		pocketsphinxController = [[PocketsphinxController alloc] init];
+        pocketsphinxController.secondsOfSilenceToDetect = 0.1;
 	}
 	return pocketsphinxController;
 }
@@ -52,6 +53,9 @@
 	return openEarsEventsObserver;
 }
 
+
+// Activate voice recognition.
+// Call stopListening to terminate.
 - (void) startListening {
     [self.pocketsphinxController startListeningWithLanguageModelAtPath:self.lmPath dictionaryAtPath:self.dicPath languageModelIsJSGF:FALSE];
 }
@@ -88,8 +92,8 @@
                                                              @"GO",
                                                              @"START",
                                                              @"STOP",
-                                                             @"ONE",
-                                                             @"TWO",
+                                                             @"SAVE",
+                                                             @"RESET",
                                                              nil]];
     
     
