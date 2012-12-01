@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+			<LinearLayout 
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/linearLayout">
+
+					<TextView
+					style="@style/timerText" 
+ 					android:text="@string/timer"
+ 					android:onClick="startClick"
+ 					android:id="@+id/timer">
+					</TextView>
+
+				<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_gravity="center_horizontal"
+				android:gravity="center"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp">
+					<Button 
+					style="@style/buttonText" 
+					android:layout_marginLeft="5dp"
+					android:text="@string/stopText"
+					android:id="@+id/stopButton"
+					android:onClick="stopClick"
+					android:visibility="gone">
+					</Button>
+					<Button 
+					style="@style/buttonText" 
+					android:layout_marginRight="5dp"
+					android:text="@string/lapText"
+					android:id="@+id/lapButton"
+					android:onClick="lapClick"
+					android:visibility="gone">
+					</Button>
+					<Button  
+					style="@style/buttonText" 
+					android:layout_marginLeft="5dp"
+					android:text="@string/startText"
+					android:onClick="startClick"
+					android:id="@+id/startButton">
+					</Button>
+					<Button 
+					style="@style/buttonText" 
+					android:layout_marginRight="5dp"
+					android:text="@string/resetText"
+					android:onClick="resetClick"
+					android:id="@+id/resetButton">
+					</Button>	
+				</LinearLayout>
+			</LinearLayout>	
+
+	</RelativeLayout>

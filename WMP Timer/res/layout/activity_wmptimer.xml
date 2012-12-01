@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+			<LinearLayout 
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/linearLayout">
+				<LinearLayout 
+				android:orientation="vertical"
+				android:layout_gravity="center_horizontal"
+				android:gravity="center"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="150dp">
+					<Button  
+					style="@style/buttonText" 
+					android:layout_marginLeft="5dp"
+					android:text="@string/title_activity_stopwatch"
+					android:onClick="runSwatch"
+					android:id="@+id/sWatchButton">
+					</Button>
+					<Button 
+					style="@style/buttonText" 
+					android:layout_marginLeft="5dp"
+					android:text="@string/title_activity_timer"
+					android:onClick="runTimer"
+					android:id="@+id/timerButton">
+					</Button>	
+				</LinearLayout>
+			</LinearLayout>	
+	</RelativeLayout>
