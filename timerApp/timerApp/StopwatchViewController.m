@@ -7,6 +7,7 @@
 //
 
 #import "StopwatchViewController.h"
+#import <OpenEars/LanguageModelGenerator.h>
 
 @implementation StopwatchViewController{
     NSTimeInterval clockTime;
@@ -24,14 +25,100 @@
 @synthesize lapButton = _lapButton;
 @synthesize navBar = _navBar;
 
+
+@synthesize openEarsEventsObserver;
+@synthesize pocketsphinxController;
+@synthesize lmPath = _lmPath;
+@synthesize dicPath = _dicPath;
+
+
+#pragma mark -
+#pragma mark OpenEars
+
+// Lazily allocated PocketsphinxController.
+- (PocketsphinxController *)pocketsphinxController {
+	if (pocketsphinxController == nil) {
+		pocketsphinxController = [[PocketsphinxController alloc] init];
+	}
+	return pocketsphinxController;
+}
+
+
+// Lazily allocated OpenEarsEventsObserver.
+- (OpenEarsEventsObserver *)openEarsEventsObserver {
+	if (openEarsEventsObserver == nil) {
+		openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
+	}
+	return openEarsEventsObserver;
+}
+
+- (void) startListening {
+    [self.pocketsphinxController startListeningWithLanguageModelAtPath:self.lmPath dictionaryAtPath:self.dicPath languageModelIsJSGF:FALSE];
+}
+
+- (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
+    NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
+    
+    if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
+        // start clock
+        
+        return;
+    }
+    else if([hypothesis isEqualToString:@"STOP"]) {
+        // stop clock
+        
+        return;
+    }
+}
+
+
+
+#pragma mark -
+#pragma mark view
+
 -(void)viewDidLoad{
     self.table.dataSource = self;
     self.navBar.delegate = self;
     self.laps = [[NSMutableArray alloc] initWithCapacity:0];
+    
+	[self.openEarsEventsObserver setDelegate:self]; // Make this class the delegate of OpenEarsObserver so we can get all of the messages about what OpenEars is doing.
+    
+    
+	NSArray *languageArray = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects: // All capital letters.
+                                                             @"GO",
+                                                             @"START",
+                                                             @"STOP",
+                                                             @"ONE",
+                                                             @"TWO",
+                                                             nil]];
+    
+    
+	LanguageModelGenerator *languageModelGenerator = [[LanguageModelGenerator alloc] init];
+    
+    // generateLanguageModelFromArray:withFilesNamed returns an NSError which will either have a value of noErr if everything went fine or a specific error if it didn't.
+	NSError *error = [languageModelGenerator generateLanguageModelFromArray:languageArray withFilesNamed:@"voiceAction"];
+    
+    NSDictionary *languageGeneratorResults = nil;
+    
+    if([error code] == noErr) {
+        
+        languageGeneratorResults = [error userInfo];
+		
+        self.lmPath = [languageGeneratorResults objectForKey:@"LMPath"];
+        self.dicPath = [languageGeneratorResults objectForKey:@"DictionaryPath"];
+		NSLog(@"Grammar path - %@", self.lmPath);
+        NSLog(@"Dictionary path - %@", self.dicPath);
+        
+    } else {
+        NSLog(@"Error: %@",[error localizedDescription]);
+    }
+    
+    // [self startListening];
 }
 
 
 - (IBAction)startButtonPressed:(id)sender {
+    NSLog(@"start / stop ?");
     
     if (!self.timerRunning){
         self.timerRunning = YES;
