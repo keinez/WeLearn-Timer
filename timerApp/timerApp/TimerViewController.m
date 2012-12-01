@@ -38,7 +38,8 @@
     self.table.delegate = self;
     self.navBar.delegate = self;
     pickerUp = NO;
-    currentTimer = 1;
+    currentIndex = 1;
+    currentTimer = 0;
     
     self.savedTimers = [[NSMutableArray alloc] initWithCapacity:0];
     self.savedNames = [[NSMutableArray alloc] initWithCapacity:0];
@@ -60,7 +61,7 @@
         [self.savedNames addObject:currentTimerName];
     }
     else{
-        [self.savedNames addObject:[NSString stringWithFormat:@"Timer %d", currentTimer++]];
+        [self.savedNames addObject:[NSString stringWithFormat:@"Timer %d", currentIndex++]];
     }
     NSNumber *wrap = [NSNumber numberWithDouble:totalTime];
     [self.savedValues addObject:wrap];

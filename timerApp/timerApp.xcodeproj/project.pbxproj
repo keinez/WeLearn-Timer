@@ -11,7 +11,7 @@
 		432AA8811669414E0062C1E7 /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA8801669414E0062C1E7 /* timer.png */; };
 		432AA88316695F7C0062C1E7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432AA88216695F7C0062C1E7 /* AudioToolbox.framework */; };
 		432AA88916696C1E0062C1E7 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432AA88816696C1E0062C1E7 /* EditViewController.m */; };
-		432AA88B166A9D480062C1E7 /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA88A166A9D480062C1E7 /* deleteButton.png */; };
+		432AA88D166AAD340062C1E7 /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA88C166AAD340062C1E7 /* deleteButton.png */; };
 		434FA495163DAA48002F3546 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434FA494163DAA48002F3546 /* TimerViewController.m */; };
 		434FA499163DD17E002F3546 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434FA498163DD17E002F3546 /* StopwatchViewController.m */; };
 		43CBFECA1621E0A700AA1616 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFEC91621E0A700AA1616 /* UIKit.framework */; };
@@ -45,7 +45,7 @@
 		432AA88216695F7C0062C1E7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		432AA88716696C1E0062C1E7 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		432AA88816696C1E0062C1E7 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
-		432AA88A166A9D480062C1E7 /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButton.png; path = ../../../../../../Desktop/deleteButton.png; sourceTree = "<group>"; };
+		432AA88C166AAD340062C1E7 /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButton.png; path = ../deleteButton.png; sourceTree = "<group>"; };
 		434FA493163DAA48002F3546 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		434FA494163DAA48002F3546 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		434FA497163DD17E002F3546 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				434FA498163DD17E002F3546 /* StopwatchViewController.m */,
 				434FA493163DAA48002F3546 /* TimerViewController.h */,
 				434FA494163DAA48002F3546 /* TimerViewController.m */,
-				432AA88A166A9D480062C1E7 /* deleteButton.png */,
+				432AA88C166AAD340062C1E7 /* deleteButton.png */,
 				432AA87E1669411D0062C1E7 /* stopwatch.png */,
 				432AA8801669414E0062C1E7 /* timer.png */,
 				43CBFED01621E0A700AA1616 /* Supporting Files */,
@@ -253,7 +253,7 @@
 				43CBFEE01621E0A700AA1616 /* MainStoryboard_iPad.storyboard in Resources */,
 				432AA87F1669411D0062C1E7 /* stopwatch.png in Resources */,
 				432AA8811669414E0062C1E7 /* timer.png in Resources */,
-				432AA88B166A9D480062C1E7 /* deleteButton.png in Resources */,
+				432AA88D166AAD340062C1E7 /* deleteButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
