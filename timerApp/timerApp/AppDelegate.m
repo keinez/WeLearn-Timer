@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#include <AudioToolbox/AudioToolbox.h>
 
 @implementation AppDelegate
 
@@ -26,6 +27,21 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
+
+- (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
+    // Handle the notificaton when the app is running
+    NSLog(@"Recieved Notification %@",notif);
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"WeMP Timer"
+                          message: notif.alertBody
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+    AudioServicesPlaySystemSound(1005);
+    //[(NSMutableDictionary*)[notif.userInfo objectForKey:@"saveArray"] removeObjectForKey:[notif.userInfo objectForKey:@"name"]];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

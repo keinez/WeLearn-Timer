@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *savedNames;
 @property (strong, nonatomic) NSMutableArray *savedValues;
 @property (strong, nonatomic) NSMutableDictionary *savedAlarms;
+@property (strong, nonatomic) NSMutableDictionary *savedReferences;
 @property (strong, nonatomic) UIPickerView *picker;
 @property (strong, nonatomic) IBOutlet UIButton *resetButton;
 @property (strong, nonatomic) IBOutlet UITabBar *navBar;
