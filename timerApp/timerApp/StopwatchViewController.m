@@ -61,11 +61,17 @@
     
     if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
         // start clock
+        //[self startButtonPressed:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"starting!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
         
         return;
     }
     else if([hypothesis isEqualToString:@"STOP"]) {
         // stop clock
+        //[self startButtonPressed:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"stopping!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
         
         return;
     }
@@ -113,7 +119,7 @@
         NSLog(@"Error: %@",[error localizedDescription]);
     }
     
-    // [self startListening];
+    [self startListening];
 }
 
 
