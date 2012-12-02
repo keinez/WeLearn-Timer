@@ -8,7 +8,7 @@
 
 #import "TimerViewController.h"
 #import "StopwatchViewController.h"
-#import "SettingsViewController.h"
+#import "ControlSettingsViewController.h"
 
 @implementation TimerViewController{
     NSTimeInterval clockTime;
@@ -341,21 +341,7 @@ numberOfRowsInComponent:(NSInteger)component
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if (buttonIndex == 0) {
-		NSLog(@"User pressed OK");
-	}
+	
 }
-
-/**************************Tab Bar Delegate Methods************
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    if ([item.title isEqualToString:@"Stopwatch"]){
-        [self.navigationController pushViewController:[[StopwatchViewController alloc] init] animated:NO];
-        //[self performSegueWithIdentifier:@"StopwatchSegue" sender:self];
-    }
-    else if ([item.title isEqualToString:@"Settings"]){
-        [self.navigationController pushViewController:[[SettingsViewController alloc] init] animated:NO];
-    }
-}*/
 
 @end
