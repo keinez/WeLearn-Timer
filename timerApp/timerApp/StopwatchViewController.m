@@ -231,7 +231,9 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if ([item.title isEqualToString: @"Timer"]){
-        [self performSegueWithIdentifier:@"TimerSegue" sender:self];
+        //[self performSegueWithIdentifier:@"TimerSegue" sender:self];
+        [self.navigationController popToRootViewControllerAnimated:YES]
+        ;
     }
 }
 

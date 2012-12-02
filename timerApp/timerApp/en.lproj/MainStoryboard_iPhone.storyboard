@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eiX-5n-5e9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3HD-EJ-AKu">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="8Hz-gw-Y7n">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXm-fY-guS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="3HD-EJ-AKu" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2cX-ID-1Ki">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DVA-QG-ILb" kind="relationship" relationship="rootViewController" id="a7y-Vu-223"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="286" y="671"/>
+        </scene>
         <!--Stopwatch View Controller - Stopwatch-->
         <scene sceneID="n3u-Jt-Pig">
             <objects>
@@ -101,7 +117,6 @@
                         <outlet property="lapButton" destination="vCv-cT-2gd" id="QJE-tw-wfS"/>
                         <outlet property="navBar" destination="g5V-sb-0Oi" id="9Sw-4p-urz"/>
                         <outlet property="table" destination="WRe-ZN-gye" id="Pbe-aS-HAb"/>
-                        <segue destination="DVA-QG-ILb" kind="modal" identifier="TimerSegue" modalTransitionStyle="flipHorizontal" id="xDa-YY-woP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4B-Sj-pLB" sceneMemberID="firstResponder"/>
@@ -215,7 +230,7 @@
                         <outlet property="navBar" destination="VXX-zR-ilw" id="q0n-me-q44"/>
                         <outlet property="resetButton" destination="lBK-JR-2CW" id="wq2-bA-CnP"/>
                         <outlet property="table" destination="5m3-Bt-oDO" id="Hb9-bJ-hBc"/>
-                        <segue destination="eiX-5n-5e9" kind="modal" identifier="StopwatchSegue" modalTransitionStyle="flipHorizontal" id="o5x-ga-dpx"/>
+                        <segue destination="eiX-5n-5e9" kind="push" identifier="StopwatchSegue" id="o5x-ga-dpx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAG-1T-ZOg" sceneMemberID="firstResponder"/>
