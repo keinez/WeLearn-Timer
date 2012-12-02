@@ -14,7 +14,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    //createLanguageModel();
+    [application setApplicationSupportsShakeToEdit:YES];
+    
     return YES;
 }
 							

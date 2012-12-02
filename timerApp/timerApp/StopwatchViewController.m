@@ -76,9 +76,38 @@
 	[self.openEarsEventsObserver setDelegate:self]; // Make this class the delegate of OpenEarsObserver so we can get all of the messages about what OpenEars is doing.
     self.pocketsphinxController = [Pocketsphinx sharedInstance];
     
-    [self startListening];
+    //[self startListening];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+
+    [self becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    [self becomeFirstResponder];
+}
+
+
+- (void)viewDidUnload {
+    [self setClockButton:nil];
+    [self setTable:nil];
+    [self setLapButton:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    // Do your thing after shaking device
+    [self startButtonPressed:nil];
+}
+
+#pragma mark -
+#pragma mark View actions
 
 - (IBAction)startButtonPressed:(id)sender {
     NSLog(@"start / stop ?");
@@ -151,14 +180,6 @@
     
     [self.clockButton setTitle:currentTime forState:UIControlStateNormal];
 }
-
-- (void)viewDidUnload {
-    [self setClockButton:nil];
-    [self setTable:nil];
-    [self setLapButton:nil];
-    [super viewDidUnload];
-}
-
 
 
 #pragma mark -
