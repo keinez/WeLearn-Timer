@@ -12,7 +12,6 @@
 
 @interface ControlSettingsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *controlTableView;
 @property (strong, nonatomic) IBOutlet UISwitch *voiceControlSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *shakeControlSwitch;
 

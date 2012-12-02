@@ -12,25 +12,64 @@
 
 @implementation SettingsViewController
 
+@synthesize voiceControlSwitch = _voiceControlSwitch;
+@synthesize shakeControlSwitch = _shakeControlSwitch;
+
+- (void)viewDidLoad {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"shakeControl"] == nil) {
+        // Shake Control is off by default
+        [defaults setInteger:0 forKey:@"shakeControl"];
+    }
+    if ([defaults objectForKey:@"voiceControl"] == nil) {
+        // Voice Control is on by default
+        [defaults setInteger:1 forKey:@"voiceControl"];
+    }
+    
+    NSInteger vc = [defaults integerForKey:@"voiceControl"];
+    NSInteger sc = [defaults integerForKey:@"shakeControl"];
+    
+    if (vc == 0) {
+        [self.voiceControlSwitch setOn:NO animated:NO];
+    }
+    else if (vc == 1) {
+        [self.voiceControlSwitch setOn:YES animated:NO];
+    }
+    
+    if (sc == 0) {
+        [self.shakeControlSwitch setOn:NO animated:NO];
+    }
+    else if (sc == 1) {
+        [self.shakeControlSwitch setOn:YES animated:NO];
+    }
+}
+
 - (void)viewDidUnload {
-    [self setNavBar:nil];
+    [self setVoiceControlSwitch:nil];
+    [self setShakeControlSwitch:nil];
     [super viewDidUnload];
 }
 
-
-//**************************Tab Bar Delegate Methods************
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    if ([item.title isEqualToString: @"Timer"]){
-        [self.navigationController popToRootViewControllerAnimated:NO]
-        ;
+- (IBAction)voiceControlSwitchChange:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (self.voiceControlSwitch.isOn){
+        [defaults setInteger:1 forKey:@"voiceControl"];
     }
-    else if ([item.title isEqualToString: @"Stopwatch"]){
-        //[self performSegueWithIdentifier:@"TimerSegue" sender:self];
-        [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:[[StopwatchViewController alloc] init] animated:NO]
-        ;
+    else {
+        [defaults setInteger:0 forKey:@"voiceControl"];
     }
 }
+
+- (IBAction)shakeControlSwitchChange:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (self.shakeControlSwitch.isOn){
+        [defaults setInteger:1 forKey:@"shakeControl"];
+    }
+    else {
+        [defaults setInteger:0 forKey:@"shakeControl"];
+    }
+}
+
 
 @end

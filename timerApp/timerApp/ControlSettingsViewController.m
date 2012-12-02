@@ -16,11 +16,8 @@
 
 @synthesize voiceControlSwitch = _voiceControlSwitch;
 @synthesize shakeControlSwitch = _shakeControlSwitch;
-@synthesize controlTableView = _controlTableView;
 
 - (void)viewDidLoad {
-    self.controlTableView.dataSource = self;
-    self.controlTableView.delegate = self;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"shakeControl"] == nil) {
@@ -53,7 +50,6 @@
 - (void)viewDidUnload {
     [self setVoiceControlSwitch:nil];
     [self setShakeControlSwitch:nil];
-    [self setTableView:nil];
     [super viewDidUnload];
 }
 
