@@ -8,19 +8,25 @@
 #import <OpenEars/PocketsphinxController.h>
 
 
-@interface Pocketsphinx : PocketsphinxController
+@interface Pocketsphinx : PocketsphinxController{
+    NSString *lmStopwatchPath;
+    NSString *dicStopwatchPath;
+    NSString *lmTimerPath;
+    NSString *dicTimerPath;
+}
 
 + (id)sharedInstance;
-+ (void)startListeningFor:(NSString*)type;
-+ (void)changeModelTo:(NSString*)type;
+- (void)startListeningFor:(NSString*)type;
+- (void)changeModelTo:(NSString*)type;
 
 
 @end
 
-
+/*
 NSString *lmStopwatchPath;
 NSString *dicStopwatchPath;
 NSString *lmTimerPath;
 NSString *dicTimerPath;
 
 void createLanguageModel();
+*/

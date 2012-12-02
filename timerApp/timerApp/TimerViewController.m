@@ -34,6 +34,48 @@
 @synthesize picker = _picker;
 @synthesize resetButton = _resetButton;
 
+@synthesize openEarsEventsObserver;
+@synthesize pocketsphinxController;
+
+#pragma mark -
+#pragma mark OpenEars
+
+// Lazily allocated OpenEarsEventsObserver.
+- (OpenEarsEventsObserver *)openEarsEventsObserver {
+	if (openEarsEventsObserver == nil) {
+		openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
+	}
+	return openEarsEventsObserver;
+}
+
+
+// Activate voice recognition.
+// Call stopListening to terminate.
+- (void) startListening {
+    [pocketsphinxController startListeningFor:@"Stopwatch"];
+}
+
+- (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
+    NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
+    
+    if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
+        // start clock
+        [self startButtonPressed:nil];
+        return;
+    }
+    else if([hypothesis isEqualToString:@"STOP"]) {
+        // stop clock
+        [self startButtonPressed:nil];
+        return;
+    }
+}
+
+
+
+
+#pragma mark -
+#pragma mark View
+
 -(void)viewDidLoad{
     self.table.dataSource = self;
     self.table.delegate = self;
@@ -47,6 +89,10 @@
     self.savedAlarms = [[NSMutableDictionary alloc] initWithCapacity:0];
     self.savedReferences = [[NSMutableDictionary alloc] initWithCapacity:0];
     [self.table reloadData];
+    
+    
+	[self.openEarsEventsObserver setDelegate:self]; // Make this class the delegate of OpenEarsObserver so we can get all of the messages about what OpenEars is doing.
+    self.pocketsphinxController = [Pocketsphinx sharedInstance];
 }
 
 

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <OpenEars/OpenEarsEventsObserver.h>
 #import "EditViewController.h"
+#import "Constants.h"
 
-@interface TimerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate, UITextFieldDelegate>
+@interface TimerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, OpenEarsEventsObserverDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *clockButton;
 @property (nonatomic) BOOL timerRunning;
@@ -25,6 +27,9 @@
 @property (strong, nonatomic) UIPickerView *picker;
 @property (strong, nonatomic) IBOutlet UIButton *resetButton;
 @property (strong, nonatomic) EditViewController *editController;
+
+@property (nonatomic, strong) OpenEarsEventsObserver *openEarsEventsObserver;
+@property (nonatomic, strong) Pocketsphinx *pocketsphinxController;
 
 - (IBAction)savePressed:(id)sender;
 - (IBAction)editPressed:(id)sender;

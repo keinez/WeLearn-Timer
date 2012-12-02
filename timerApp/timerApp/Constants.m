@@ -18,13 +18,16 @@ static Pocketsphinx *pocketsphinx = nil;
         NSLog(@"new pocketsphinx instance");
         pocketsphinx = [[super allocWithZone:NULL] init];
         pocketsphinx.secondsOfSilenceToDetect = 0.1;
+        
+        [pocketsphinx createLanguageModel];
     }
     
     return pocketsphinx;
 }
 
 
-+ (void)startListeningFor:(NSString*)type{
+- (void)startListeningFor:(NSString*)type{
+    NSLog(@"Start for %@", type);
     if ([type isEqualToString:@"Stopwatch"]) {
         [pocketsphinx startListeningWithLanguageModelAtPath:lmStopwatchPath dictionaryAtPath:dicStopwatchPath languageModelIsJSGF:FALSE];
     }
@@ -33,7 +36,8 @@ static Pocketsphinx *pocketsphinx = nil;
     }
 }
 
-+ (void)changeModelTo:(NSString*)type{
+- (void)changeModelTo:(NSString*)type{
+    NSLog(@"Switch model to %@", type);
     if ([type isEqualToString:@"Stopwatch"]) {
         [pocketsphinx changeLanguageModelToFile:lmStopwatchPath withDictionary:dicStopwatchPath];
     }
@@ -43,14 +47,10 @@ static Pocketsphinx *pocketsphinx = nil;
 }
 
 
-@end
 
 
 
-
-
-
-void createLanguageModel(){
+- (void)createLanguageModel{
     NSLog(@"initiate");
     
     // Voice command list for stopwatch
@@ -107,4 +107,7 @@ void createLanguageModel(){
         NSLog(@"++++++++++");
     }
 }
+
+@end
+
 

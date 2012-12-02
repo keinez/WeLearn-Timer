@@ -7,7 +7,6 @@
 //
 
 #import "StopwatchViewController.h"
-#import <OpenEars/LanguageModelGenerator.h>
 #import "SettingsViewController.h"
 #import "TimerViewController.h"
 
@@ -29,21 +28,10 @@
 
 @synthesize openEarsEventsObserver;
 @synthesize pocketsphinxController;
-@synthesize lmPath = _lmPath;
-@synthesize dicPath = _dicPath;
 
 
 #pragma mark -
 #pragma mark OpenEars
-
-// Lazily allocated PocketsphinxController.
-- (PocketsphinxController *)pocketsphinxController {
-	if (pocketsphinxController == nil) {
-		pocketsphinxController = [[PocketsphinxController alloc] init];
-        pocketsphinxController.secondsOfSilenceToDetect = 0.1;
-	}
-	return pocketsphinxController;
-}
 
 
 // Lazily allocated OpenEarsEventsObserver.
@@ -58,7 +46,7 @@
 // Activate voice recognition.
 // Call stopListening to terminate.
 - (void) startListening {
-    [self.pocketsphinxController startListeningWithLanguageModelAtPath:self.lmPath dictionaryAtPath:self.dicPath languageModelIsJSGF:FALSE];
+    [pocketsphinxController startListeningFor:@"Stopwatch"];
 }
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
@@ -86,36 +74,7 @@
     self.laps = [[NSMutableArray alloc] initWithCapacity:0];
     
 	[self.openEarsEventsObserver setDelegate:self]; // Make this class the delegate of OpenEarsObserver so we can get all of the messages about what OpenEars is doing.
-    
-    
-	NSArray *languageArray = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects: // All capital letters.
-                                                             @"GO",
-                                                             @"START",
-                                                             @"STOP",
-                                                             @"SAVE",
-                                                             @"RESET",
-                                                             nil]];
-    
-    
-	LanguageModelGenerator *languageModelGenerator = [[LanguageModelGenerator alloc] init];
-    
-    // generateLanguageModelFromArray:withFilesNamed returns an NSError which will either have a value of noErr if everything went fine or a specific error if it didn't.
-	NSError *error = [languageModelGenerator generateLanguageModelFromArray:languageArray withFilesNamed:@"voiceAction"];
-    
-    NSDictionary *languageGeneratorResults = nil;
-    
-    if([error code] == noErr) {
-        
-        languageGeneratorResults = [error userInfo];
-		
-        self.lmPath = [languageGeneratorResults objectForKey:@"LMPath"];
-        self.dicPath = [languageGeneratorResults objectForKey:@"DictionaryPath"];
-		NSLog(@"Grammar path - %@", self.lmPath);
-        NSLog(@"Dictionary path - %@", self.dicPath);
-        
-    } else {
-        NSLog(@"Error: %@",[error localizedDescription]);
-    }
+    self.pocketsphinxController = [Pocketsphinx sharedInstance];
     
     [self startListening];
 }
@@ -200,7 +159,11 @@
     [super viewDidUnload];
 }
 
-//**************************Table View Delegate Methods************
+
+
+#pragma mark -
+#pragma mark Table View Delegate Methods
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
