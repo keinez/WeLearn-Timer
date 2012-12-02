@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "43CBFEC41621E0A700AA1616"
-               BuildableName = "timerApp.app"
+               BuildableName = "WeMP Timer.app"
                BlueprintName = "WeMP Timer"
                ReferencedContainer = "container:timerApp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43CBFEC41621E0A700AA1616"
-            BuildableName = "timerApp.app"
+            BuildableName = "WeMP Timer.app"
             BlueprintName = "WeMP Timer"
             ReferencedContainer = "container:timerApp.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43CBFEC41621E0A700AA1616"
-            BuildableName = "timerApp.app"
+            BuildableName = "WeMP Timer.app"
             BlueprintName = "WeMP Timer"
             ReferencedContainer = "container:timerApp.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43CBFEC41621E0A700AA1616"
-            BuildableName = "timerApp.app"
+            BuildableName = "WeMP Timer.app"
             BlueprintName = "WeMP Timer"
             ReferencedContainer = "container:timerApp.xcodeproj">
          </BuildableReference>
