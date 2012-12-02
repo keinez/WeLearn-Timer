@@ -10,7 +10,7 @@
 #import <OpenEars/OpenEarsEventsObserver.h>
 #import <OpenEars/PocketsphinxController.h>
 
-@interface StopwatchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, OpenEarsEventsObserverDelegate> 
+@interface StopwatchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, OpenEarsEventsObserverDelegate> 
 
 @property (strong, nonatomic) IBOutlet UIButton *clockButton;
 @property (nonatomic) BOOL timerRunning;
@@ -20,7 +20,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) NSMutableArray *laps;
 @property (strong, nonatomic) IBOutlet UIButton *lapButton;
-@property (strong, nonatomic) IBOutlet UITabBar *navBar;
 
 
 @property (nonatomic, strong) OpenEarsEventsObserver *openEarsEventsObserver;

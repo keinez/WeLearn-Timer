@@ -7,6 +7,8 @@
 //
 
 #import "TimerViewController.h"
+#import "StopwatchViewController.h"
+#import "SettingsViewController.h"
 
 @implementation TimerViewController{
     NSTimeInterval clockTime;
@@ -31,12 +33,10 @@
 @synthesize savedAlarms = _savedAlarms;
 @synthesize picker = _picker;
 @synthesize resetButton = _resetButton;
-@synthesize navBar = _navBar;
 
 -(void)viewDidLoad{
     self.table.dataSource = self;
     self.table.delegate = self;
-    self.navBar.delegate = self;
     pickerUp = NO;
     currentIndex = 1;
     currentTimer = 0;
@@ -173,7 +173,6 @@
     [self setClockButton:nil];
     [self setTable:nil];
     [self setResetButton:nil];
-    [self setNavBar:nil];
     [super viewDidUnload];
 }
 
@@ -301,12 +300,16 @@ numberOfRowsInComponent:(NSInteger)component
 	}
 }
 
-//**************************Tab Bar Delegate Methods************
+/**************************Tab Bar Delegate Methods************
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if ([item.title isEqualToString:@"Stopwatch"]){
-        [self performSegueWithIdentifier:@"StopwatchSegue" sender:self];
+        [self.navigationController pushViewController:[[StopwatchViewController alloc] init] animated:NO];
+        //[self performSegueWithIdentifier:@"StopwatchSegue" sender:self];
     }
-}
+    else if ([item.title isEqualToString:@"Settings"]){
+        [self.navigationController pushViewController:[[SettingsViewController alloc] init] animated:NO];
+    }
+}*/
 
 @end

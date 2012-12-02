@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EditViewController.h"
 
-@interface TimerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate, UITabBarDelegate, UITextFieldDelegate>
+@interface TimerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *clockButton;
 @property (nonatomic) BOOL timerRunning;
@@ -24,7 +24,6 @@
 @property (strong, nonatomic) NSMutableDictionary *savedReferences;
 @property (strong, nonatomic) UIPickerView *picker;
 @property (strong, nonatomic) IBOutlet UIButton *resetButton;
-@property (strong, nonatomic) IBOutlet UITabBar *navBar;
 @property (strong, nonatomic) EditViewController *editController;
 
 - (IBAction)savePressed:(id)sender;

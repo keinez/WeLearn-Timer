@@ -8,6 +8,8 @@
 
 #import "StopwatchViewController.h"
 #import <OpenEars/LanguageModelGenerator.h>
+#import "SettingsViewController.h"
+#import "TimerViewController.h"
 
 @implementation StopwatchViewController{
     NSTimeInterval clockTime;
@@ -23,7 +25,6 @@
 @synthesize table = _table;
 @synthesize laps = _laps;
 @synthesize lapButton = _lapButton;
-@synthesize navBar = _navBar;
 
 
 @synthesize openEarsEventsObserver;
@@ -82,7 +83,6 @@
 
 -(void)viewDidLoad{
     self.table.dataSource = self;
-    self.navBar.delegate = self;
     self.laps = [[NSMutableArray alloc] initWithCapacity:0];
     
 	[self.openEarsEventsObserver setDelegate:self]; // Make this class the delegate of OpenEarsObserver so we can get all of the messages about what OpenEars is doing.
@@ -197,7 +197,6 @@
     [self setClockButton:nil];
     [self setTable:nil];
     [self setLapButton:nil];
-    [self setNavBar:nil];
     [super viewDidUnload];
 }
 
@@ -227,14 +226,19 @@
     return cell;
 }
 
-//**************************Tab Bar Delegate Methods************
+/**************************Tab Bar Delegate Methods************
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if ([item.title isEqualToString: @"Timer"]){
-        //[self performSegueWithIdentifier:@"TimerSegue" sender:self];
-        [self.navigationController popToRootViewControllerAnimated:YES]
+        [self.navigationController popToRootViewControllerAnimated:NO]
         ;
     }
-}
+    else if ([item.title isEqualToString: @"Settings"]){
+        //[self performSegueWithIdentifier:@"TimerSegue" sender:self];
+        [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController pushViewController:[[SettingsViewController alloc] init] animated:NO]
+        ;
+    }
+}*/
 
 @end

@@ -26,6 +26,7 @@
 		432AA89C166BDBAD0062C1E7 /* settingsTabBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA89B166BDBAD0062C1E7 /* settingsTabBarButton.png */; };
 		434FA495163DAA48002F3546 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434FA494163DAA48002F3546 /* TimerViewController.m */; };
 		434FA499163DD17E002F3546 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434FA498163DD17E002F3546 /* StopwatchViewController.m */; };
+		43A0C0E1166BFD0D00216E57 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A0C0E0166BFD0D00216E57 /* TabBarController.m */; };
 		43CBFECA1621E0A700AA1616 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFEC91621E0A700AA1616 /* UIKit.framework */; };
 		43CBFECC1621E0A700AA1616 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFECB1621E0A700AA1616 /* Foundation.framework */; };
 		43CBFECE1621E0A700AA1616 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFECD1621E0A700AA1616 /* CoreGraphics.framework */; };
@@ -75,6 +76,8 @@
 		434FA494163DAA48002F3546 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		434FA497163DD17E002F3546 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
 		434FA498163DD17E002F3546 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
+		43A0C0DF166BFD0D00216E57 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		43A0C0E0166BFD0D00216E57 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		43CBFEC51621E0A700AA1616 /* WeMP Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeMP Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CBFEC91621E0A700AA1616 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43CBFECB1621E0A700AA1616 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,6 +198,8 @@
 				43F226CD166BEEDF00192FB1 /* SettingsViewController.m */,
 				434FA497163DD17E002F3546 /* StopwatchViewController.h */,
 				434FA498163DD17E002F3546 /* StopwatchViewController.m */,
+				43A0C0DF166BFD0D00216E57 /* TabBarController.h */,
+				43A0C0E0166BFD0D00216E57 /* TabBarController.m */,
 				434FA493163DAA48002F3546 /* TimerViewController.h */,
 				434FA494163DAA48002F3546 /* TimerViewController.m */,
 				43F226CB166BEE5600192FB1 /* PNGs */,
@@ -371,6 +376,7 @@
 				434FA499163DD17E002F3546 /* StopwatchViewController.m in Sources */,
 				432AA88916696C1E0062C1E7 /* EditViewController.m in Sources */,
 				43F226CE166BEEDF00192FB1 /* SettingsViewController.m in Sources */,
+				43A0C0E1166BFD0D00216E57 /* TabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
