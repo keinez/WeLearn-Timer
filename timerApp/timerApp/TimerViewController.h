@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *timerEditor1;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *timerEditor2;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *timerEditor3;
+@property (strong, nonatomic) IBOutlet UIButton *plusButton;
 
 @property (strong, nonatomic) NSTimer *myClock;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -35,6 +36,7 @@
 - (IBAction)editPressed:(id)sender;
 - (IBAction)startButtonPressed:(id)sender;
 - (IBAction)resetPressed:(id)sender;
+- (IBAction)plusPressed:(id)sender;
 
 
 - (void)createTimer;

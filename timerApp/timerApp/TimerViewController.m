@@ -20,6 +20,7 @@
     NSMutableArray *timerEditors;
     int activeTag;
     BOOL clockRunning;
+    int numActive;
 }
 
 @synthesize timer1 = _timer1;
@@ -35,6 +36,7 @@
 @synthesize savedAlarms = _savedAlarms;
 @synthesize picker = _picker;
 @synthesize openEarsEventsObserver;
+@synthesize plusButton = _plusButton;
 
 #pragma mark -
 #pragma mark OpenEars
@@ -72,13 +74,11 @@
     }
 }
 
-
-
-
 #pragma mark -
 #pragma mark View
 
 -(void)viewDidLoad{
+    numActive = 1;
     for (int i=0; i<3; ++i) {
         totalTime[i] = 60;
         clockTime[i] = 60;
@@ -96,6 +96,11 @@
     timerName = [[NSMutableArray alloc] initWithObjects:@"Timer 1", @"Timer 2", @"Timer 3", nil];
     timers = [[NSMutableArray alloc] initWithObjects:self.timer1, self.timer2, self.timer3, nil];
     timerEditors = [[NSMutableArray alloc] initWithObjects:self.timerEditor1, self.timerEditor2, self.timerEditor3, nil];
+    
+    [timerEditors[1] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
+    [timers[1] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
+    [timerEditors[2] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
+    [timers[2] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -119,6 +124,7 @@
     [self setTimerEditor1:nil];
     [self setTimerEditor2:nil];
     [self setTimerEditor3:nil];
+    [self setPlusButton:nil];
     [super viewDidUnload];
 }
 
@@ -198,6 +204,20 @@
     }
 }
 
+- (IBAction)plusPressed:(id)sender {
+    if (numActive == 1) {
+        [timerEditors[1] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
+        [timers[1] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
+        [self.plusButton setFrame:CGRectMake(103, 309, 57, 56)];
+        numActive++;
+    }
+    else if (numActive == 2) {
+        [timerEditors[2] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
+        [timers[2] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
+        [self.plusButton setHidden:YES];
+    }
+}
+
 
 #pragma mark -
 #pragma mark Clock runner
@@ -235,6 +255,7 @@
 - (void) pollTime
 {
     for (int i=0; i<3; ++i) {
+        
         if (timerRunning[i]){
             NSTimeInterval time = [reference[i] timeIntervalSinceNow];
             plusTime[i] = time + clockTime[i];
