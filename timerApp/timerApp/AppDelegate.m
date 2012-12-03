@@ -19,11 +19,11 @@
     
     if ([defaults objectForKey:@"shakeControl"] == nil) {
         // Shake Control is off by default
-        [defaults setInteger:0 forKey:@"shakeControl"];
+        [defaults setInteger:1 forKey:@"shakeControl"];
     }
     if ([defaults objectForKey:@"voiceControl"] == nil) {
         // Voice Control is on by default
-        [defaults setInteger:1 forKey:@"voiceControl"];
+        [defaults setInteger:0 forKey:@"voiceControl"];
     }
     
     

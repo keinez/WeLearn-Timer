@@ -157,6 +157,30 @@
     }
 }
 
+- (IBAction)helpPressed:(id)sender {
+    NSString *imgFilepath = [[NSBundle mainBundle] pathForResource:@"StopwatchHelpNRD" ofType:@"png"];
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:imgFilepath];
+    UIImageView *helpView = [[UIImageView alloc] initWithImage:img];
+    helpView.userInteractionEnabled = YES;
+    [helpView setTag:99];
+    
+    [self.view addSubview:helpView];
+    
+    UITapGestureRecognizer *tap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
+    [helpView addGestureRecognizer:tap];
+}
+
+-(void)imageTapped:(id)sender {
+    for (UIView *subView in self.view.subviews)
+    {
+        if (subView.tag == 99)
+        {
+            [subView removeFromSuperview];
+        }
+    }
+}
+
 - (void)createTimer {
     self.myClock = [NSTimer scheduledTimerWithTimeInterval:0.1
                                                     target:self

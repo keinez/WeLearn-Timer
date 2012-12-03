@@ -29,6 +29,7 @@
 
 - (IBAction)startButtonPressed:(id)sender;
 - (IBAction)resetPressed:(id)sender;
+- (IBAction)helpPressed:(id)sender;
 
 
 - (void)createTimer;
