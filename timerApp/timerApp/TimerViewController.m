@@ -202,6 +202,7 @@
         localNotif.alertBody = [NSString stringWithFormat:@"%@'s Time is Up!", currentTimerName];
         localNotif.alertAction = @"View in App";
         localNotif.soundName = UILocalNotificationDefaultSoundName;
+        localNotif.repeatInterval = 0;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
         [self.savedAlarms setObject:localNotif forKey:currentTimerName];
         [self.savedReferences setObject:self.reference forKey:currentTimerName];
