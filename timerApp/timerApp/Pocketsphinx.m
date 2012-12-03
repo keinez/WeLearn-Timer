@@ -58,7 +58,9 @@ static Pocketsphinx *pocketsphinx = nil;
                                                              @"GO",
                                                              @"START",
                                                              @"STOP",
+                                                             @"END",
                                                              @"SAVE",
+                                                             @"LAP",
                                                              @"RESET",
                                                              nil]];
     
@@ -67,6 +69,7 @@ static Pocketsphinx *pocketsphinx = nil;
                                                               @"GO",
                                                               @"START",
                                                               @"STOP",
+                                                              @"END",
                                                               @"SAVE",
                                                               @"RESET",
                                                               nil]];

@@ -49,16 +49,30 @@
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
     NSLog(@"Received for timer");
     NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
-    
-    if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
-        // start clock
-        [self startButtonPressed:nil];
+    if([hypothesis isEqualToString:@"SAVE"]) {
+        // save clock
+        [self savePressed:nil];
         return;
     }
-    else if([hypothesis isEqualToString:@"STOP"]) {
-        // stop clock
-        [self startButtonPressed:nil];
-        return;
+    
+    if (self.timerRunning) {
+        if([hypothesis isEqualToString:@"STOP"] || [hypothesis isEqualToString:@"END"]) {
+            // stop clock
+            [self startButtonPressed:nil];
+            return;
+        }
+    }
+    else {
+        if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
+            // start clock
+            [self startButtonPressed:nil];
+            return;
+        }
+        if([hypothesis isEqualToString:@"RESET"]) {
+            // save clock
+            [self resetPressed:nil];
+            return;
+        }
     }
 }
 
@@ -72,6 +86,13 @@
     self.table.dataSource = self;
     self.table.delegate = self;
     pickerUp = NO;
+    if (totalTime == 0){
+        totalTime = 60;
+        clockTime = 60;
+        self.timerRunning = NO;
+        timerEdited = YES;
+        currentTimerName = @"One Minute To Win It";
+    }
     currentIndex = 1;
     currentTimer = 0;
     
@@ -80,6 +101,7 @@
     self.savedValues = [[NSMutableArray alloc] initWithCapacity:0];
     self.savedAlarms = [[NSMutableDictionary alloc] initWithCapacity:0];
     self.savedReferences = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [self displayTime:clockTime];
     [self.table reloadData];
 }
 
@@ -179,7 +201,6 @@
         localNotif.soundName = UILocalNotificationDefaultSoundName;
         localNotif.alertBody = [NSString stringWithFormat:@"%@'s Time is Up!", currentTimerName];
         localNotif.alertAction = @"View in App";
-        //localNotif.userInfo = [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:currentTimerName, self.savedAlarms, nil ]forKeys:[[NSArray alloc] initWithObjects:@"name", @"saveArray", nil ]];
         localNotif.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
         [self.savedAlarms setObject:localNotif forKey:currentTimerName];
@@ -220,7 +241,7 @@
         if(lround(floor(plusTime)) <= 0){
             self.reference = nil;
             [self displayTime:0];
-            //self.timerRunning = NO;
+            self.timerRunning = NO;
             self.resetButton.hidden = NO;
             [self.savedAlarms removeObjectForKey:currentTimerName];
         }

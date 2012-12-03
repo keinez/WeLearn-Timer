@@ -44,17 +44,31 @@
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
     NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
+    if (self.timerRunning){
+        if([hypothesis isEqualToString:@"STOP"] || [hypothesis isEqualToString:@"END"]) {
+            // stop clock
+            [self startButtonPressed:nil];
+            return;
+        }
+        if([hypothesis isEqualToString:@"LAP"] || [hypothesis isEqualToString:@"SAVE"]) {
+            // save lap time
+            [self resetPressed:nil];
+            return;
+        }
+    }
+    else {
+        if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
+            // start clock
+            [self startButtonPressed:nil];
+            return;
+        }
+        if([hypothesis isEqualToString:@"RESET"] && !self.lapButton.isHidden && [self.lapButton.titleLabel.text isEqualToString:@"Reset"]) {
+            // reset clock
+            [self resetPressed:nil];
+            return;
+        }
+    }
     
-    if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
-        // start clock
-        [self startButtonPressed:nil];
-        return;
-    }
-    else if([hypothesis isEqualToString:@"STOP"]) {
-        // stop clock
-        [self startButtonPressed:nil];
-        return;
-    }
 }
 
 
