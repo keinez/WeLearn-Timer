@@ -195,7 +195,7 @@
         [self createTimer];
         self.resetButton.hidden = YES;
         UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-        NSDate *item = [NSDate dateWithTimeIntervalSinceNow:clockTime];
+        NSDate *item = [[NSDate dateWithTimeIntervalSinceNow:clockTime] dateByAddingTimeInterval:-1]; //CHANGED clocktime.. not fully tested
         localNotif.fireDate = item;
         localNotif.timeZone = [NSTimeZone defaultTimeZone];
         localNotif.soundName = UILocalNotificationDefaultSoundName;

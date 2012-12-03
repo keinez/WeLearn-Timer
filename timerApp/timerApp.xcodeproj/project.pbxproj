@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02D40A49166AB3D600A93EC0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D40A48166AB3D600A93EC0 /* Default-568h@2x.png */; };
 		02D40A56166ABC8F00A93EC0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D40A55166ABC8F00A93EC0 /* AVFoundation.framework */; };
 		02D40A58166ABC9400A93EC0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D40A57166ABC9400A93EC0 /* AudioToolbox.framework */; };
 		02D40A8A166ABEE400A93EC0 /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 02D40A7A166ABEE400A93EC0 /* cmu07a.dic */; };
@@ -29,6 +28,13 @@
 		434FA499163DD17E002F3546 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434FA498163DD17E002F3546 /* StopwatchViewController.m */; };
 		437B9A83166C1E7100B756E4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437B9A82166C1E7100B756E4 /* SettingsViewController.m */; };
 		43A0C0E1166BFD0D00216E57 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A0C0E0166BFD0D00216E57 /* TabBarController.m */; };
+		43C2F85D166C582800BF6C2A /* WEMPTimerSplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F85C166C582800BF6C2A /* WEMPTimerSplashScreen.png */; };
+		43C2F860166C588100BF6C2A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F85F166C588100BF6C2A /* Default.png */; };
+		43C2F862166C58D100BF6C2A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F861166C58D100BF6C2A /* Default-568h@2x.png */; };
+		43C2F864166C5A2400BF6C2A /* WEMPTimerAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F863166C5A2400BF6C2A /* WEMPTimerAppIcon.png */; };
+		43C2F866166C5A2E00BF6C2A /* WEMPTimerAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F865166C5A2E00BF6C2A /* WEMPTimerAppIcon@2x.png */; };
+		43C2F868166C5A8E00BF6C2A /* WEMPTimerAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F867166C5A8E00BF6C2A /* WEMPTimerAppIcon.png */; };
+		43C2F86A166C5A9600BF6C2A /* WEMPTimerAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F869166C5A9500BF6C2A /* WEMPTimerAppIcon@2x.png */; };
 		43CBFECA1621E0A700AA1616 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFEC91621E0A700AA1616 /* UIKit.framework */; };
 		43CBFECC1621E0A700AA1616 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFECB1621E0A700AA1616 /* Foundation.framework */; };
 		43CBFECE1621E0A700AA1616 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFECD1621E0A700AA1616 /* CoreGraphics.framework */; };
@@ -55,7 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02D40A48166AB3D600A93EC0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		02D40A55166ABC8F00A93EC0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		02D40A57166ABC9400A93EC0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		02D40A7A166ABEE400A93EC0 /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
@@ -83,6 +88,13 @@
 		437B9A82166C1E7100B756E4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		43A0C0DF166BFD0D00216E57 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		43A0C0E0166BFD0D00216E57 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		43C2F85C166C582800BF6C2A /* WEMPTimerSplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEMPTimerSplashScreen.png; sourceTree = "<group>"; };
+		43C2F85F166C588100BF6C2A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		43C2F861166C58D100BF6C2A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		43C2F863166C5A2400BF6C2A /* WEMPTimerAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WEMPTimerAppIcon.png; path = "../../../../../../Desktop/Timer PNGs/WEMPTimerAppIcon.png"; sourceTree = "<group>"; };
+		43C2F865166C5A2E00BF6C2A /* WEMPTimerAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WEMPTimerAppIcon@2x.png"; path = "../../../../../../Desktop/Timer PNGs/WEMPTimerAppIcon@2x.png"; sourceTree = "<group>"; };
+		43C2F867166C5A8E00BF6C2A /* WEMPTimerAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEMPTimerAppIcon.png; sourceTree = "<group>"; };
+		43C2F869166C5A9500BF6C2A /* WEMPTimerAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WEMPTimerAppIcon@2x.png"; sourceTree = "<group>"; };
 		43CBFEC51621E0A700AA1616 /* WeMP Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeMP Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CBFEC91621E0A700AA1616 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43CBFECB1621E0A700AA1616 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -157,7 +169,9 @@
 		43CBFEBA1621E0A700AA1616 = {
 			isa = PBXGroup;
 			children = (
-				02D40A48166AB3D600A93EC0 /* Default-568h@2x.png */,
+				43C2F869166C5A9500BF6C2A /* WEMPTimerAppIcon@2x.png */,
+				43C2F867166C5A8E00BF6C2A /* WEMPTimerAppIcon.png */,
+				43C2F861166C58D100BF6C2A /* Default-568h@2x.png */,
 				43CBFECF1621E0A700AA1616 /* timerApp */,
 				43CBFEF01621E0A700AA1616 /* timerAppTests */,
 				02D40A79166ABEE400A93EC0 /* Framework */,
@@ -246,6 +260,10 @@
 		43F226CB166BEE5600192FB1 /* PNGs */ = {
 			isa = PBXGroup;
 			children = (
+				43C2F865166C5A2E00BF6C2A /* WEMPTimerAppIcon@2x.png */,
+				43C2F863166C5A2400BF6C2A /* WEMPTimerAppIcon.png */,
+				43C2F85F166C588100BF6C2A /* Default.png */,
+				43C2F85C166C582800BF6C2A /* WEMPTimerSplashScreen.png */,
 				432AA88C166AAD340062C1E7 /* deleteButton.png */,
 				432AA89B166BDBAD0062C1E7 /* settingsTabBarButton.png */,
 				432AA87E1669411D0062C1E7 /* stopwatch.png */,
@@ -331,7 +349,6 @@
 				432AA87F1669411D0062C1E7 /* stopwatch.png in Resources */,
 				432AA8811669414E0062C1E7 /* timer.png in Resources */,
 				432AA88D166AAD340062C1E7 /* deleteButton.png in Resources */,
-				02D40A49166AB3D600A93EC0 /* Default-568h@2x.png in Resources */,
 				02D40A8A166ABEE400A93EC0 /* cmu07a.dic in Resources */,
 				02D40A8B166ABEE400A93EC0 /* feat.params in Resources */,
 				02D40A8C166ABEE400A93EC0 /* mdef in Resources */,
@@ -341,6 +358,13 @@
 				02D40A90166ABEE400A93EC0 /* transition_matrices in Resources */,
 				02D40A91166ABEE400A93EC0 /* variances in Resources */,
 				432AA89C166BDBAD0062C1E7 /* settingsTabBarButton.png in Resources */,
+				43C2F85D166C582800BF6C2A /* WEMPTimerSplashScreen.png in Resources */,
+				43C2F860166C588100BF6C2A /* Default.png in Resources */,
+				43C2F862166C58D100BF6C2A /* Default-568h@2x.png in Resources */,
+				43C2F864166C5A2400BF6C2A /* WEMPTimerAppIcon.png in Resources */,
+				43C2F866166C5A2E00BF6C2A /* WEMPTimerAppIcon@2x.png in Resources */,
+				43C2F868166C5A8E00BF6C2A /* WEMPTimerAppIcon.png in Resources */,
+				43C2F86A166C5A9600BF6C2A /* WEMPTimerAppIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
