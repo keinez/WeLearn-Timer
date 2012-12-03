@@ -162,7 +162,9 @@
     NSInteger shake = [[NSUserDefaults standardUserDefaults] integerForKey:@"shakeControl"];
     
     if (shake) {
-        [self startButtonPressed:nil];
+        for (int i=0; i<numActive; ++i) {
+            [self startButtonPressed:timers[i]];
+        }
     }
 }
 
