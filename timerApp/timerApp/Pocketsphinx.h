@@ -1,5 +1,5 @@
 //
-//  Constants.h
+//  Pocketsphinx.h
 //  timerApp
 //
 //
@@ -19,14 +19,4 @@
 - (void)startListeningFor:(NSString*)type;
 - (void)changeModelTo:(NSString*)type;
 
-
 @end
-
-/*
-NSString *lmStopwatchPath;
-NSString *dicStopwatchPath;
-NSString *lmTimerPath;
-NSString *dicTimerPath;
-
-void createLanguageModel();
-*/

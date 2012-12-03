@@ -27,7 +27,6 @@
 
 
 @synthesize openEarsEventsObserver;
-@synthesize pocketsphinxController;
 
 
 #pragma mark -
@@ -42,12 +41,6 @@
 	return openEarsEventsObserver;
 }
 
-
-// Activate voice recognition.
-// Call stopListening to terminate.
-- (void) startListening {
-    [pocketsphinxController startListeningFor:@"Stopwatch"];
-}
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
     NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
@@ -72,20 +65,20 @@
 -(void)viewDidLoad{
     self.table.dataSource = self;
     self.laps = [[NSMutableArray alloc] initWithCapacity:0];
-    
-	[self.openEarsEventsObserver setDelegate:self]; // Make this class the delegate of OpenEarsObserver so we can get all of the messages about what OpenEars is doing.
-    self.pocketsphinxController = [Pocketsphinx sharedInstance];
-    
-    //[self startListening];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
+    NSInteger vc = [[NSUserDefaults standardUserDefaults] integerForKey:@"voiceControl"];
+    if (vc) {
+        [self.openEarsEventsObserver setDelegate:self];
+        [[Pocketsphinx sharedInstance] changeModelTo:@"Stopwatch"];
+    }
+    
     [self becomeFirstResponder];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    
+	[self.openEarsEventsObserver setDelegate:nil];
     [self becomeFirstResponder];
 }
 
@@ -102,8 +95,11 @@
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    // Do your thing after shaking device
-    [self startButtonPressed:nil];
+    NSInteger shake = [[NSUserDefaults standardUserDefaults] integerForKey:@"shakeControl"];
+    
+    if (shake) {
+        [self startButtonPressed:nil];
+    }
 }
 
 #pragma mark -

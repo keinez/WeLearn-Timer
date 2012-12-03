@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <OpenEars/OpenEarsEventsObserver.h>
 #import "EditViewController.h"
-#import "Constants.h"
+#import "Pocketsphinx.h"
 
 @interface TimerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, OpenEarsEventsObserverDelegate>
 
@@ -29,7 +29,6 @@
 @property (strong, nonatomic) EditViewController *editController;
 
 @property (nonatomic, strong) OpenEarsEventsObserver *openEarsEventsObserver;
-@property (nonatomic, strong) Pocketsphinx *pocketsphinxController;
 
 - (IBAction)savePressed:(id)sender;
 - (IBAction)editPressed:(id)sender;

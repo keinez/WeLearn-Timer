@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Pocketsphinx.h"
 #include <AudioToolbox/AudioToolbox.h>
 
 @implementation AppDelegate
@@ -14,7 +15,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:@"shakeControl"] == nil) {
+        // Shake Control is off by default
+        [defaults setInteger:0 forKey:@"shakeControl"];
+    }
+    if ([defaults objectForKey:@"voiceControl"] == nil) {
+        // Voice Control is on by default
+        [defaults setInteger:1 forKey:@"voiceControl"];
+    }
+    
+    
     [application setApplicationSupportsShakeToEdit:YES];
+    
+    if ([defaults objectForKey:@"voiceControl"]) {
+        [[Pocketsphinx sharedInstance] startListeningFor:@"Stopwatch"];
+    }
     
     return YES;
 }

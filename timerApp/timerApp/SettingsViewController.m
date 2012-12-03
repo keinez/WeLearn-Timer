@@ -18,14 +18,6 @@
 - (void)viewDidLoad {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"shakeControl"] == nil) {
-        // Shake Control is off by default
-        [defaults setInteger:0 forKey:@"shakeControl"];
-    }
-    if ([defaults objectForKey:@"voiceControl"] == nil) {
-        // Voice Control is on by default
-        [defaults setInteger:1 forKey:@"voiceControl"];
-    }
     
     NSInteger vc = [defaults integerForKey:@"voiceControl"];
     NSInteger sc = [defaults integerForKey:@"shakeControl"];
@@ -55,9 +47,11 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (self.voiceControlSwitch.isOn){
         [defaults setInteger:1 forKey:@"voiceControl"];
+        [[Pocketsphinx sharedInstance] startListeningFor:@"Stopwatch"];
     }
     else {
         [defaults setInteger:0 forKey:@"voiceControl"];
+        [[Pocketsphinx sharedInstance] stopListening];
     }
 }
 

@@ -1,10 +1,10 @@
 //
-//  Constants.m
+//  Pocketsphinx.m
 //  timerApp
 //
 //
 
-#import "Constants.h"
+#import "Pocketsphinx.h"
 #import <OpenEars/LanguageModelGenerator.h>
 
 

@@ -35,7 +35,6 @@
 @synthesize resetButton = _resetButton;
 
 @synthesize openEarsEventsObserver;
-@synthesize pocketsphinxController;
 
 #pragma mark -
 #pragma mark OpenEars
@@ -48,14 +47,8 @@
 	return openEarsEventsObserver;
 }
 
-
-// Activate voice recognition.
-// Call stopListening to terminate.
-- (void) startListening {
-    [pocketsphinxController startListeningFor:@"Stopwatch"];
-}
-
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
+    NSLog(@"Received for timer");
     NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
     
     if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
@@ -89,12 +82,44 @@
     self.savedAlarms = [[NSMutableDictionary alloc] initWithCapacity:0];
     self.savedReferences = [[NSMutableDictionary alloc] initWithCapacity:0];
     [self.table reloadData];
-    
-    
-	[self.openEarsEventsObserver setDelegate:self]; // Make this class the delegate of OpenEarsObserver so we can get all of the messages about what OpenEars is doing.
-    self.pocketsphinxController = [Pocketsphinx sharedInstance];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSInteger vc = [[NSUserDefaults standardUserDefaults] integerForKey:@"voiceControl"];
+    if (vc) {
+        [self.openEarsEventsObserver setDelegate:self];
+        [[Pocketsphinx sharedInstance] changeModelTo:@"Timer"];
+    }
+    [self becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+	[self.openEarsEventsObserver setDelegate:nil];
+    [self becomeFirstResponder];
+}
+
+- (void)viewDidUnload {
+    [self setClockButton:nil];
+    [self setTable:nil];
+    [self setResetButton:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    NSInteger shake = [[NSUserDefaults standardUserDefaults] integerForKey:@"shakeControl"];
+    
+    if (shake) {
+        [self startButtonPressed:nil];
+    }
+}
+
+
+#pragma mark -
+#pragma mark View actions
 
 - (IBAction)savePressed:(id)sender {
     if (timerEdited == NO){
@@ -215,13 +240,6 @@
     [self.clockButton setTitle:currentTime forState:UIControlStateNormal];
 }
 
-- (void)viewDidUnload {
-    [self setClockButton:nil];
-    [self setTable:nil];
-    [self setResetButton:nil];
-    [super viewDidUnload];
-}
-
 //*************************Picker View Delegate Methods************
 
 - (NSInteger)numberOfComponentsInPickerView:
@@ -290,6 +308,13 @@ numberOfRowsInComponent:(NSInteger)component
     
     [self dismissModalViewControllerAnimated:YES];
 }
+
+
+
+
+
+#pragma mark -
+#pragma mark Table View Delegate Methods
 
 //**************************Table View Delegate Methods************
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

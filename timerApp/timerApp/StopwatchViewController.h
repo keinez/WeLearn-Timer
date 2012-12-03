@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <OpenEars/OpenEarsEventsObserver.h>
-#import "Constants.h"
+#import "Pocketsphinx.h"
 
 @interface StopwatchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, OpenEarsEventsObserverDelegate> 
 
@@ -23,7 +23,6 @@
 
 
 @property (nonatomic, strong) OpenEarsEventsObserver *openEarsEventsObserver;
-@property (nonatomic, strong) Pocketsphinx *pocketsphinxController;
 
 
 
