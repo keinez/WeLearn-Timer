@@ -22,3 +22,7 @@ local.properties
 *.xcuserstate
 
 timerApp/timerApp.xcodeproj/project.xcworkspace/xcuserdata/DC.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcuserstate
+
+timerApp/timerApp.xcodeproj/project.xcworkspace/xcuserdata/Aria.xcuserdatad/UserInterfaceState.xcuserstate
