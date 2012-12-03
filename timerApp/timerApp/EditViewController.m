@@ -60,7 +60,11 @@ numberOfRowsInComponent:(NSInteger)component
     [textField resignFirstResponder];
     return YES;
 }
-
+- (void)viewWillDisappear:(BOOL)animated {
+    if (self.timerName.text != nil) {
+        self.name = self.timerName.text;
+    }
+}
 - (void)viewDidUnload {
     [self setTimePicker:nil];
     [self setTimerName:nil];
