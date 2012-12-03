@@ -126,7 +126,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YbQ-1t-6e7">
-                                <rect key="frame" x="20" y="62" width="228" height="93"/>
+                                <rect key="frame" x="20" y="62" width="228" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                                 <state key="normal" title="00:00:00">
@@ -140,8 +140,8 @@
                                     <action selector="startButtonPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="ByX-Gf-nsw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z8H-zr-DE0">
-                                <rect key="frame" x="20" y="184" width="228" height="93"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z8H-zr-DE0">
+                                <rect key="frame" x="20" y="179" width="228" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                                 <state key="normal" title="00:00:00">
@@ -155,8 +155,8 @@
                                     <action selector="startButtonPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="WOq-tO-4NF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a1C-Rk-Mo2">
-                                <rect key="frame" x="20" y="299" width="228" height="93"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a1C-Rk-Mo2">
+                                <rect key="frame" x="20" y="293" width="228" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                                 <state key="normal" title="00:00:00">
@@ -171,7 +171,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lBK-JR-2CW">
-                                <rect key="frame" x="256" y="62" width="44" height="37"/>
+                                <rect key="frame" x="256" y="106" width="44" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Reset">
@@ -185,8 +185,53 @@
                                     <action selector="resetPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="EDo-Sl-a4h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tBp-gd-bt5">
-                                <rect key="frame" x="256" y="184" width="44" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="U0K-XG-2wt">
+                                <rect key="frame" x="256" y="62" width="44" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="pFJ-p0-FOF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tjj-it-JY3">
+                                <rect key="frame" x="256" y="179" width="44" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="rGg-sG-zrW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NLl-Wj-PEC">
+                                <rect key="frame" x="256" y="293" width="44" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="DyZ-ve-rof"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tBp-gd-bt5">
+                                <rect key="frame" x="256" y="223" width="44" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Reset">
@@ -200,8 +245,8 @@
                                     <action selector="resetPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="JYK-0b-a2k"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sn1-RV-zMx">
-                                <rect key="frame" x="256" y="299" width="44" height="37"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sn1-RV-zMx">
+                                <rect key="frame" x="256" y="337" width="44" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Reset">
@@ -219,13 +264,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="WeMP Timer" id="e5P-wc-gLB">
-                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="PbE-Hj-xj4">
-                                            <connections>
-                                                <action selector="editPressed:" destination="DVA-QG-ILb" id="yUf-va-aD3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="WeMP Timer" id="e5P-wc-gLB"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -234,8 +273,15 @@
                     <tabBarItem key="tabBarItem" title="Timer" image="timer.png" id="bqT-fH-G5n"/>
                     <navigationItem key="navigationItem" id="E3a-IP-ydn"/>
                     <connections>
-                        <outlet property="clockButton" destination="YbQ-1t-6e7" id="TDZ-wW-VCD"/>
-                        <outlet property="resetButton" destination="lBK-JR-2CW" id="wq2-bA-CnP"/>
+                        <outlet property="timer1" destination="YbQ-1t-6e7" id="htI-tv-AD1"/>
+                        <outlet property="timer2" destination="z8H-zr-DE0" id="zpH-4N-c7D"/>
+                        <outlet property="timer3" destination="a1C-Rk-Mo2" id="1mk-PC-zak"/>
+                        <outletCollection property="timerEditor1" destination="U0K-XG-2wt" id="50Z-lk-6Fo"/>
+                        <outletCollection property="timerEditor1" destination="lBK-JR-2CW" id="c0V-ZU-aTb"/>
+                        <outletCollection property="timerEditor2" destination="Tjj-it-JY3" id="jLO-Io-pR0"/>
+                        <outletCollection property="timerEditor2" destination="tBp-gd-bt5" id="4MF-9e-ifs"/>
+                        <outletCollection property="timerEditor3" destination="NLl-Wj-PEC" id="GCN-DB-Dgz"/>
+                        <outletCollection property="timerEditor3" destination="Sn1-RV-zMx" id="hbR-BA-3Cd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAG-1T-ZOg" sceneMemberID="firstResponder"/>
@@ -380,13 +426,15 @@
         <class className="TimerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimerViewController.h"/>
             <relationships>
-                <relationship kind="action" name="editPressed:"/>
-                <relationship kind="action" name="resetPressed:"/>
-                <relationship kind="action" name="savePressed:"/>
-                <relationship kind="action" name="startButtonPressed:"/>
-                <relationship kind="outlet" name="clockButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="resetButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+                <relationship kind="action" name="editPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="resetPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="startButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timer1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timer2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timer3" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="timerEditor1" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="timerEditor2" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="timerEditor3" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
