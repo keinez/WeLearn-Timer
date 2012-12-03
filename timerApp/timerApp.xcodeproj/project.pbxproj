@@ -27,7 +27,6 @@
 		432AA89C166BDBAD0062C1E7 /* settingsTabBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA89B166BDBAD0062C1E7 /* settingsTabBarButton.png */; };
 		434FA495163DAA48002F3546 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434FA494163DAA48002F3546 /* TimerViewController.m */; };
 		434FA499163DD17E002F3546 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434FA498163DD17E002F3546 /* StopwatchViewController.m */; };
-		437B9A7C166C1B1700B756E4 /* ControlSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437B9A7B166C1B1700B756E4 /* ControlSettingsViewController.m */; };
 		437B9A83166C1E7100B756E4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437B9A82166C1E7100B756E4 /* SettingsViewController.m */; };
 		43A0C0E1166BFD0D00216E57 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A0C0E0166BFD0D00216E57 /* TabBarController.m */; };
 		43CBFECA1621E0A700AA1616 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBFEC91621E0A700AA1616 /* UIKit.framework */; };
@@ -80,8 +79,6 @@
 		434FA494163DAA48002F3546 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		434FA497163DD17E002F3546 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
 		434FA498163DD17E002F3546 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
-		437B9A7A166C1B1700B756E4 /* ControlSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSettingsViewController.h; sourceTree = "<group>"; };
-		437B9A7B166C1B1700B756E4 /* ControlSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlSettingsViewController.m; sourceTree = "<group>"; };
 		437B9A81166C1E7100B756E4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		437B9A82166C1E7100B756E4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		43A0C0DF166BFD0D00216E57 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
@@ -198,8 +195,6 @@
 				43CBFED91621E0A700AA1616 /* AppDelegate.m */,
 				02D40AA7166C02FD00A93EC0 /* Constants.h */,
 				02D40AA8166C02FD00A93EC0 /* Constants.m */,
-				437B9A7A166C1B1700B756E4 /* ControlSettingsViewController.h */,
-				437B9A7B166C1B1700B756E4 /* ControlSettingsViewController.m */,
 				432AA88716696C1E0062C1E7 /* EditViewController.h */,
 				432AA88816696C1E0062C1E7 /* EditViewController.m */,
 				43CBFEDE1621E0A700AA1616 /* MainStoryboard_iPad.storyboard */,
@@ -387,7 +382,6 @@
 				432AA88916696C1E0062C1E7 /* EditViewController.m in Sources */,
 				43A0C0E1166BFD0D00216E57 /* TabBarController.m in Sources */,
 				02D40AA9166C02FE00A93EC0 /* Constants.m in Sources */,
-				437B9A7C166C1B1700B756E4 /* ControlSettingsViewController.m in Sources */,
 				437B9A83166C1E7100B756E4 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
