@@ -8,7 +8,6 @@
 
 #import "TimerViewController.h"
 #import "StopwatchViewController.h"
-#import "ControlSettingsViewController.h"
 
 @implementation TimerViewController{
     NSTimeInterval clockTime;

@@ -19,7 +19,7 @@
 		02D40A90166ABEE400A93EC0 /* transition_matrices in Resources */ = {isa = PBXBuildFile; fileRef = 02D40A81166ABEE400A93EC0 /* transition_matrices */; };
 		02D40A91166ABEE400A93EC0 /* variances in Resources */ = {isa = PBXBuildFile; fileRef = 02D40A82166ABEE400A93EC0 /* variances */; };
 		02D40A92166ABEE400A93EC0 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D40A83166ABEE400A93EC0 /* OpenEars.framework */; };
-		02D40AA9166C02FE00A93EC0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D40AA8166C02FD00A93EC0 /* Constants.m */; };
+		02D40AC0166C36C500A93EC0 /* Pocketsphinx.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D40ABF166C36C500A93EC0 /* Pocketsphinx.m */; };
 		432AA87F1669411D0062C1E7 /* stopwatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA87E1669411D0062C1E7 /* stopwatch.png */; };
 		432AA8811669414E0062C1E7 /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA8801669414E0062C1E7 /* timer.png */; };
 		432AA88916696C1E0062C1E7 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432AA88816696C1E0062C1E7 /* EditViewController.m */; };
@@ -67,8 +67,8 @@
 		02D40A81166ABEE400A93EC0 /* transition_matrices */ = {isa = PBXFileReference; lastKnownFileType = file; path = transition_matrices; sourceTree = "<group>"; };
 		02D40A82166ABEE400A93EC0 /* variances */ = {isa = PBXFileReference; lastKnownFileType = file; path = variances; sourceTree = "<group>"; };
 		02D40A83166ABEE400A93EC0 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
-		02D40AA7166C02FD00A93EC0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		02D40AA8166C02FD00A93EC0 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		02D40ABE166C36C500A93EC0 /* Pocketsphinx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pocketsphinx.h; sourceTree = "<group>"; };
+		02D40ABF166C36C500A93EC0 /* Pocketsphinx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pocketsphinx.m; sourceTree = "<group>"; };
 		432AA87E1669411D0062C1E7 /* stopwatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stopwatch.png; path = ../stopwatch.png; sourceTree = "<group>"; };
 		432AA8801669414E0062C1E7 /* timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer.png; path = ../timer.png; sourceTree = "<group>"; };
 		432AA88716696C1E0062C1E7 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
@@ -193,13 +193,13 @@
 			children = (
 				43CBFED81621E0A700AA1616 /* AppDelegate.h */,
 				43CBFED91621E0A700AA1616 /* AppDelegate.m */,
-				02D40AA7166C02FD00A93EC0 /* Constants.h */,
-				02D40AA8166C02FD00A93EC0 /* Constants.m */,
 				432AA88716696C1E0062C1E7 /* EditViewController.h */,
 				432AA88816696C1E0062C1E7 /* EditViewController.m */,
 				43CBFEDE1621E0A700AA1616 /* MainStoryboard_iPad.storyboard */,
 				43CBFEDB1621E0A700AA1616 /* MainStoryboard_iPhone.storyboard */,
 				43F226CB166BEE5600192FB1 /* PNGs */,
+				02D40ABE166C36C500A93EC0 /* Pocketsphinx.h */,
+				02D40ABF166C36C500A93EC0 /* Pocketsphinx.m */,
 				437B9A81166C1E7100B756E4 /* SettingsViewController.h */,
 				437B9A82166C1E7100B756E4 /* SettingsViewController.m */,
 				434FA497163DD17E002F3546 /* StopwatchViewController.h */,
@@ -381,8 +381,8 @@
 				434FA499163DD17E002F3546 /* StopwatchViewController.m in Sources */,
 				432AA88916696C1E0062C1E7 /* EditViewController.m in Sources */,
 				43A0C0E1166BFD0D00216E57 /* TabBarController.m in Sources */,
-				02D40AA9166C02FE00A93EC0 /* Constants.m in Sources */,
 				437B9A83166C1E7100B756E4 /* SettingsViewController.m in Sources */,
+				02D40AC0166C36C500A93EC0 /* Pocketsphinx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
