@@ -47,6 +47,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (self.voiceControlSwitch.isOn){
         [defaults setInteger:1 forKey:@"voiceControl"];
+        NSLog(@"settings activation.");
         [[Pocketsphinx sharedInstance] startListeningFor:@"Stopwatch"];
     }
     else {

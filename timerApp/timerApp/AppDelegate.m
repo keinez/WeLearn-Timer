@@ -29,7 +29,10 @@
     
     [application setApplicationSupportsShakeToEdit:YES];
     
-    if ([defaults objectForKey:@"voiceControl"]) {
+    NSInteger vc = [defaults integerForKey:@"voiceControl"];
+    
+    if (vc) {
+        NSLog(@"onactivation");
         [[Pocketsphinx sharedInstance] startListeningFor:@"Stopwatch"];
     }
     

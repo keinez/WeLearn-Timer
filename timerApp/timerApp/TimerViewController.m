@@ -374,6 +374,7 @@ numberOfRowsInComponent:(NSInteger)component
     self.editController.timerName.delegate = self;
     self.picker = self.editController.timePicker;
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(pickerDone)];
+    [self.editController.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
     self.editController.title = @"Edit Timer";
     self.editController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;

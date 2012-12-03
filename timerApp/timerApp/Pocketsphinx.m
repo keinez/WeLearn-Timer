@@ -21,6 +21,7 @@ static Pocketsphinx *pocketsphinx = nil;
         
         [pocketsphinx createLanguageModel];
     }
+    NSLog(@"library creation end");
     
     return pocketsphinx;
 }
