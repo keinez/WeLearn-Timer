@@ -59,17 +59,24 @@
     NSLog(@"Received for timer");
     NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
     
-    if (timerRunning) {
+    int i;
+    
+    if (clockRunning) {
         if([hypothesis isEqualToString:@"STOP"] || [hypothesis isEqualToString:@"END"]) {
             // stop clock
-            [self startButtonPressed:nil];
+            for (i=0; i<numActive; ++i) {
+                [self startButtonPressed:timers[i]];
+            }
             return;
         }
     }
     else {
         if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
             // start clock
-            [self startButtonPressed:nil];
+            for (i=0; i<numActive; ++i) {
+                [self startButtonPressed:timers[i]];
+            }
+            
             return;
         }
         if([hypothesis isEqualToString:@"RESET"]) {
@@ -238,6 +245,7 @@
         [self.timer3Label setHidden:NO];
         [self.secLabel3 setHidden:NO];
         [self.plusButton setHidden:YES];
+        numActive++;
     }
 }
 
@@ -300,7 +308,7 @@
 
 - (void) pollTime
 {
-    for (int i=0; i<3; ++i) {
+    for (int i=0; i<numActive; ++i) {
         
         if (timerRunning[i]){
             NSTimeInterval time = [reference[i] timeIntervalSinceNow];
