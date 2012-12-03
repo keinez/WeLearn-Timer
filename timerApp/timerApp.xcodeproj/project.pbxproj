@@ -21,6 +21,7 @@
 		02D40AC0166C36C500A93EC0 /* Pocketsphinx.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D40ABF166C36C500A93EC0 /* Pocketsphinx.m */; };
 		02D40AD3166C7FFD00A93EC0 /* chalkboardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D40AD1166C7FFD00A93EC0 /* chalkboardBackground.png */; };
 		02D40AD4166C7FFD00A93EC0 /* digitalClock.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D40AD2166C7FFD00A93EC0 /* digitalClock.png */; };
+		431ABACC166D1548001B328B /* BlackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 431ABACB166D1548001B328B /* BlackButton.png */; };
 		432AA87F1669411D0062C1E7 /* stopwatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA87E1669411D0062C1E7 /* stopwatch.png */; };
 		432AA8811669414E0062C1E7 /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 432AA8801669414E0062C1E7 /* timer.png */; };
 		432AA88916696C1E0062C1E7 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432AA88816696C1E0062C1E7 /* EditViewController.m */; };
@@ -77,6 +78,7 @@
 		02D40ABF166C36C500A93EC0 /* Pocketsphinx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pocketsphinx.m; sourceTree = "<group>"; };
 		02D40AD1166C7FFD00A93EC0 /* chalkboardBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chalkboardBackground.png; sourceTree = "<group>"; };
 		02D40AD2166C7FFD00A93EC0 /* digitalClock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = digitalClock.png; sourceTree = "<group>"; };
+		431ABACB166D1548001B328B /* BlackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackButton.png; sourceTree = "<group>"; };
 		432AA87E1669411D0062C1E7 /* stopwatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stopwatch.png; path = ../stopwatch.png; sourceTree = "<group>"; };
 		432AA8801669414E0062C1E7 /* timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer.png; path = ../timer.png; sourceTree = "<group>"; };
 		432AA88716696C1E0062C1E7 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		43F226CB166BEE5600192FB1 /* PNGs */ = {
 			isa = PBXGroup;
 			children = (
+				431ABACB166D1548001B328B /* BlackButton.png */,
 				43C2F861166C58D100BF6C2A /* Default-568h@2x.png */,
 				43C2F85F166C588100BF6C2A /* Default.png */,
 				432AA88C166AAD340062C1E7 /* deleteButton.png */,
@@ -369,6 +372,7 @@
 				43C2F8AD166C759C00BF6C2A /* StopwatchHelpNRD.png in Resources */,
 				02D40AD3166C7FFD00A93EC0 /* chalkboardBackground.png in Resources */,
 				02D40AD4166C7FFD00A93EC0 /* digitalClock.png in Resources */,
+				431ABACC166D1548001B328B /* BlackButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
