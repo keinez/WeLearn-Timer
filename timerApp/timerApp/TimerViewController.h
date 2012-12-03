@@ -13,24 +13,25 @@
 
 @interface TimerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, OpenEarsEventsObserverDelegate>
 
-@property (strong, nonatomic) IBOutlet UIButton *clockButton;
-@property (nonatomic) BOOL timerRunning;
+@property (strong, nonatomic) IBOutlet UIButton *timer1;
+@property (strong, nonatomic) IBOutlet UIButton *timer2;
+@property (strong, nonatomic) IBOutlet UIButton *timer3;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *timerEditor1;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *timerEditor2;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *timerEditor3;
+
 @property (strong, nonatomic) NSTimer *myClock;
-@property (strong, nonatomic) NSDate *reference;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
-@property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) NSMutableArray *savedTimers;
 @property (strong, nonatomic) NSMutableArray *savedNames;
 @property (strong, nonatomic) NSMutableArray *savedValues;
 @property (strong, nonatomic) NSMutableDictionary *savedAlarms;
 @property (strong, nonatomic) NSMutableDictionary *savedReferences;
 @property (strong, nonatomic) UIPickerView *picker;
-@property (strong, nonatomic) IBOutlet UIButton *resetButton;
 @property (strong, nonatomic) EditViewController *editController;
 
 @property (nonatomic, strong) OpenEarsEventsObserver *openEarsEventsObserver;
 
-- (IBAction)savePressed:(id)sender;
 - (IBAction)editPressed:(id)sender;
 - (IBAction)startButtonPressed:(id)sender;
 - (IBAction)resetPressed:(id)sender;

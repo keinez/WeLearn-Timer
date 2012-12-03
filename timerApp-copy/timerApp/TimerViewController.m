@@ -25,8 +25,6 @@
 @synthesize timerEditor1 = _timerEditor1;
 @synthesize timerEditor2 = _timerEditor2;
 @synthesize timerEditor3 = _timerEditor3;
-
-
 @synthesize timerRunning = _timerRunning;
 @synthesize myClock = _myClock;
 @synthesize reference = _reference;
@@ -35,7 +33,6 @@
 @synthesize savedNames = _savedNames;
 @synthesize savedAlarms = _savedAlarms;
 @synthesize picker = _picker;
-
 @synthesize openEarsEventsObserver;
 
 #pragma mark -

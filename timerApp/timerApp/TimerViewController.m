@@ -10,29 +10,30 @@
 #import "StopwatchViewController.h"
 
 @implementation TimerViewController{
-    NSTimeInterval clockTime;
-    NSTimeInterval totalTime;
-    NSTimeInterval plusTime;
-    BOOL pickerUp;
-    unsigned int currentTimer;
-    unsigned int currentIndex;
-    NSString *currentTimerName;
-    BOOL timerEdited;
-    BOOL savedTimer;
+    NSTimeInterval clockTime[3];
+    NSTimeInterval totalTime[3];
+    NSTimeInterval plusTime[3];
+    NSDate *reference[3];
+    BOOL timerRunning[3];
+    NSMutableArray *timerName;
+    NSMutableArray *timers;
+    NSMutableArray *timerEditors;
+    int activeTag;
+    BOOL clockRunning;
 }
 
-@synthesize clockButton = _clockButton;
-@synthesize timerRunning = _timerRunning;
+@synthesize timer1 = _timer1;
+@synthesize timer2 = _timer2;
+@synthesize timer3 = _timer3;
+@synthesize timerEditor1 = _timerEditor1;
+@synthesize timerEditor2 = _timerEditor2;
+@synthesize timerEditor3 = _timerEditor3;
 @synthesize myClock = _myClock;
-@synthesize reference = _reference;
 @synthesize dateFormatter = _dateFormatter;
-@synthesize table = _table;
 @synthesize savedTimers = _savedTimers;
 @synthesize savedNames = _savedNames;
 @synthesize savedAlarms = _savedAlarms;
 @synthesize picker = _picker;
-@synthesize resetButton = _resetButton;
-
 @synthesize openEarsEventsObserver;
 
 #pragma mark -
@@ -49,13 +50,8 @@
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
     NSLog(@"Received for timer");
     NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
-    if([hypothesis isEqualToString:@"SAVE"]) {
-        // save clock
-        [self savePressed:nil];
-        return;
-    }
     
-    if (self.timerRunning) {
+    if (timerRunning) {
         if([hypothesis isEqualToString:@"STOP"] || [hypothesis isEqualToString:@"END"]) {
             // stop clock
             [self startButtonPressed:nil];
@@ -83,26 +79,23 @@
 #pragma mark View
 
 -(void)viewDidLoad{
-    self.table.dataSource = self;
-    self.table.delegate = self;
-    pickerUp = NO;
-    if (totalTime == 0){
-        totalTime = 60;
-        clockTime = 60;
-        self.timerRunning = NO;
-        timerEdited = YES;
-        currentTimerName = @"One Minute To Win It";
+    for (int i=0; i<3; ++i) {
+        totalTime[i] = 60;
+        clockTime[i] = 60;
+        timerRunning[i] = NO;
+        [self displayTime:clockTime[i] at:i];
     }
-    currentIndex = 1;
-    currentTimer = 0;
+    clockRunning = NO;
     
     self.savedTimers = [[NSMutableArray alloc] initWithCapacity:0];
     self.savedNames = [[NSMutableArray alloc] initWithCapacity:0];
     self.savedValues = [[NSMutableArray alloc] initWithCapacity:0];
     self.savedAlarms = [[NSMutableDictionary alloc] initWithCapacity:0];
     self.savedReferences = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [self displayTime:clockTime];
-    [self.table reloadData];
+    
+    timerName = [[NSMutableArray alloc] initWithObjects:@"Timer 1", @"Timer 2", @"Timer 3", nil];
+    timers = [[NSMutableArray alloc] initWithObjects:self.timer1, self.timer2, self.timer3, nil];
+    timerEditors = [[NSMutableArray alloc] initWithObjects:self.timerEditor1, self.timerEditor2, self.timerEditor3, nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -120,9 +113,12 @@
 }
 
 - (void)viewDidUnload {
-    [self setClockButton:nil];
-    [self setTable:nil];
-    [self setResetButton:nil];
+    [self setTimer1:nil];
+    [self setTimer2:nil];
+    [self setTimer3:nil];
+    [self setTimerEditor1:nil];
+    [self setTimerEditor2:nil];
+    [self setTimerEditor3:nil];
     [super viewDidUnload];
 }
 
@@ -142,124 +138,133 @@
 #pragma mark -
 #pragma mark View actions
 
-- (IBAction)savePressed:(id)sender {
-    if (timerEdited == NO){
-        return;
-    }
-    
-    NSString *currentTime = [NSString stringWithFormat:@"%02li:%02li:%02li",
-                             lround(floor(totalTime / 3600.)) % 100,
-                             lround(floor(totalTime / 60.)) % 60,
-                             lround(floor(totalTime)) % 60];
-    [self.savedTimers addObject:currentTime];
-    if (currentTimerName != nil){
-        [self.savedNames addObject:currentTimerName];
-    }
-    else{
-        [self.savedNames addObject:[NSString stringWithFormat:@"Timer %d", currentIndex++]];
-    }
-    NSNumber *wrap = [NSNumber numberWithDouble:totalTime];
-    [self.savedValues addObject:wrap];
-    if (savedTimer){
-        currentTimer++;
-    }
-    else {
-        savedTimer = YES;
-    }
-    [self.table reloadData];
-    timerEdited = NO;
-}
-
-- (IBAction)editPressed:(id)sender {
-    timerEdited = YES;
-    if(self.timerRunning){
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"WeMP Timer"
-                              message: @"Pause the timer before you edit it!"
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
+- (IBAction)editPressed:(UIButton *)button {
+    activeTag = button.tag;
+    NSLog(@"Edit - Tag is %d", activeTag);
     [self showPicker];
 }
 
-- (IBAction)startButtonPressed:(id)sender {
-    if ([self.savedAlarms objectForKey:currentTimerName] == nil){
+- (IBAction)startButtonPressed:(UIButton *)button {
+    activeTag=button.tag;
+    NSLog(@"Start - Tag is %d", activeTag);
+    
+    if (!timerRunning[activeTag]) {     //[self.savedAlarms objectForKey:timerName[activeTag]] == nil){
+        NSLog(@"go");
         if (totalTime == 0){
             return;
         }
-        self.timerRunning = YES;
-        self.reference = [[NSDate alloc] init];
+        
         [self createTimer];
-        self.resetButton.hidden = YES;
+        
+        timerRunning[activeTag] = YES;
+        
+        reference[activeTag] = [[NSDate alloc] init];
+        [timerEditors[activeTag] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
+        
+        // Create notification
         UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-        NSDate *item = [[NSDate dateWithTimeIntervalSinceNow:clockTime] dateByAddingTimeInterval:-1]; //CHANGED clocktime.. not fully tested
+        NSDate *item = [[NSDate dateWithTimeIntervalSinceNow:clockTime[activeTag]] dateByAddingTimeInterval:-1]; //CHANGED clocktime.. not fully tested
         localNotif.fireDate = item;
         localNotif.timeZone = [NSTimeZone defaultTimeZone];
         localNotif.soundName = UILocalNotificationDefaultSoundName;
-        localNotif.alertBody = [NSString stringWithFormat:@"%@'s Time is Up!", currentTimerName];
+        localNotif.alertBody = [NSString stringWithFormat:@"%@'s Time is Up!", timerName[activeTag]];
         localNotif.alertAction = @"View in App";
         localNotif.soundName = UILocalNotificationDefaultSoundName;
         localNotif.repeatInterval = 0;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-        [self.savedAlarms setObject:localNotif forKey:currentTimerName];
-        [self.savedReferences setObject:self.reference forKey:currentTimerName];
+        [self.savedAlarms setObject:localNotif forKey:timerName[activeTag]];
+        [self.savedReferences setObject:reference[activeTag] forKey:timerName[activeTag]];
     }
     else{
-        self.timerRunning = NO;
-        clockTime = plusTime;
-        self.reference = nil;
-        [self displayTime:clockTime];
-        self.resetButton.hidden = NO;
-        [[UIApplication sharedApplication] cancelLocalNotification:[self.savedAlarms objectForKey:currentTimerName]];
-        [self.savedAlarms removeObjectForKey:currentTimerName];
-        
+        NSLog(@"stop");
+        timerRunning[activeTag] = NO;
+        [self destroyTimer];
+        clockTime[activeTag] = plusTime[activeTag];
+        reference[activeTag] = nil;
+        [self displayTime:clockTime[activeTag] at:activeTag];
+        [timerEditors[activeTag] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
+        [[UIApplication sharedApplication] cancelLocalNotification:[self.savedAlarms objectForKey:timerName[activeTag]]];
+        [self.savedAlarms removeObjectForKey:timerName[activeTag]];
     }
 }
 
-- (IBAction)resetPressed:(id)sender {
-    if (!self.timerRunning){
-        clockTime = totalTime;
-        [self displayTime:clockTime];
+- (IBAction)resetPressed:(UIButton *)button {
+    activeTag = button.tag;
+    NSLog(@"Reset - Tag is %d", activeTag);
+    
+    if (!timerRunning[activeTag]){
+        clockTime[activeTag] = totalTime[activeTag];
+        [self displayTime:clockTime[activeTag] at:activeTag];
     }
 }
+
+
+#pragma mark -
+#pragma mark Clock runner
 
 - (void)createTimer {
-    self.myClock = [NSTimer scheduledTimerWithTimeInterval:0.1
-                                                    target:self
-                                                  selector:@selector(pollTime)
-                                                  userInfo:nil
-                                                   repeats:YES];
+    if (!clockRunning) {
+        NSLog(@"starting clock");
+        clockRunning = YES;
+        self.myClock = [NSTimer scheduledTimerWithTimeInterval:0.1
+                                                        target:self
+                                                      selector:@selector(pollTime)
+                                                      userInfo:nil
+                                                       repeats:YES];
+    }
 }
+
+- (void)destroyTimer {
+    int i;
+    // Check for if none of the timer is running
+    for (i=0; i<3; ++i) {
+        if (timerRunning[i]) {
+            break;
+        }
+    }
+    if (i==3) {
+        NSLog(@"terminating clock");
+        clockRunning = NO;
+        [self.myClock invalidate];
+        self.myClock = nil;
+    }
+}
+
+
 
 - (void) pollTime
 {
-    if ([self.savedAlarms objectForKey:currentTimerName] != nil){
-        NSTimeInterval time = [self.reference timeIntervalSinceNow];
-        plusTime = time + clockTime;
-        if(lround(floor(plusTime)) <= 0){
-            self.reference = nil;
-            [self displayTime:0];
-            self.timerRunning = NO;
-            self.resetButton.hidden = NO;
-            [self.savedAlarms removeObjectForKey:currentTimerName];
+    for (int i=0; i<3; ++i) {
+        if (timerRunning[i]){
+            NSTimeInterval time = [reference[i] timeIntervalSinceNow];
+            plusTime[i] = time + clockTime[i];
+            [self displayTime:(time+clockTime[i]) at:i];
+            
+            if(lround(floor(plusTime[i])) <= 0){
+                [self startButtonPressed:timers[i]];
+                [self resetPressed:timers[i]];
+            }
         }
-        [self displayTime:(time+clockTime)];
-    }
-    else{
-        [self displayTime:clockTime];
+        else{
+            [self displayTime:clockTime[i] at:i];
+        }
     }
 }
 
-- (void) displayTime: (NSTimeInterval)time{
+- (void) displayTime:(NSTimeInterval)time at:(int)tag {
+    if (time<=0) {
+        time = 0; // so timer doesn't display negative
+    }
     NSString *currentTime = [NSString stringWithFormat:@"%02li:%02li:%02li",
                              lround(floor(time / 3600.)) % 100,
                              lround(floor(time / 60.)) % 60,
                              lround(floor(time)) % 60];
-    [self.clockButton setTitle:currentTime forState:UIControlStateNormal];
+    [timers[tag] setTitle:currentTime forState:UIControlStateNormal];
 }
+
+
+#pragma mark -
+#pragma mark Picker View Delegate Methods
 
 //*************************Picker View Delegate Methods************
 
@@ -315,17 +320,17 @@ numberOfRowsInComponent:(NSInteger)component
     int mins = [self.editController.timePicker selectedRowInComponent:1];
     int secs = [self.editController.timePicker selectedRowInComponent:2];
     
-    clockTime = (hours*3600)+(mins*60)+secs;
-    totalTime = clockTime;
+    clockTime[activeTag] = (hours*3600)+(mins*60)+secs;
+    totalTime[activeTag] = clockTime[activeTag];
     
     if (self.editController.name != nil){
-        currentTimerName = self.editController.name;
+        timerName[activeTag] = self.editController.name;
     }
     else{
-        currentTimerName = [NSString stringWithFormat:@"Timer %d", currentIndex++];
+        [timerName replaceObjectAtIndex:activeTag withObject:[NSString stringWithFormat:@"Timer %d", activeTag]];
     }
     
-    [self displayTime:clockTime];
+    [self displayTime:clockTime[activeTag] at:activeTag];
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -333,61 +338,5 @@ numberOfRowsInComponent:(NSInteger)component
 
 
 
-
-#pragma mark -
-#pragma mark Table View Delegate Methods
-
-//**************************Table View Delegate Methods************
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.savedTimers count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"timerCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = [self.savedNames objectAtIndex:(indexPath.row)];
-    cell.detailTextLabel.text = [self.savedTimers objectAtIndex:(indexPath.row)];
-    if (indexPath.row == currentTimer)
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    else
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    currentTimer = indexPath.row;
-    currentTimerName = [self.savedNames objectAtIndex:indexPath.row];
-    totalTime = [[self.savedValues objectAtIndex:(indexPath.row)] doubleValue];
-    clockTime = totalTime;
-    plusTime = 0;
-    if ([self.savedAlarms objectForKey:currentTimerName] != nil){
-        self.reference = [self.savedReferences objectForKey:currentTimerName];
-        self.resetButton.hidden = YES;
-        self.timerRunning = YES;
-    }
-    else {
-        self.reference = nil;
-    }
-    [self displayTime:clockTime];
-    [self.table reloadData];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	
-}
-
 @end
+

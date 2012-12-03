@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JRq-Oj-rSB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JRq-Oj-rSB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Stopwatch View Controller - Stopwatch-->
@@ -141,7 +141,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YbQ-1t-6e7">
-                                <rect key="frame" x="20" y="69" width="280" height="122"/>
+                                <rect key="frame" x="20" y="63" width="222" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                                 <state key="normal" title="00:01:00" backgroundImage="digitalClock.png">
@@ -156,7 +156,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lBK-JR-2CW">
-                                <rect key="frame" x="49" y="211" width="223" height="37"/>
+                                <rect key="frame" x="250" y="71" width="50" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Reset">
@@ -170,56 +170,116 @@
                                     <action selector="resetPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="EDo-Sl-a4h"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5m3-Bt-oDO">
-                                <rect key="frame" x="0.0" y="277" width="320" height="134"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="timerCell" textLabel="7U8-O0-eLN" detailTextLabel="MQa-7p-j30" style="IBUITableViewCellStyleValue1" id="u8g-zw-dbf">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7U8-O0-eLN">
-                                                    <rect key="frame" x="10" y="11" width="35" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MQa-7p-j30">
-                                                    <rect key="frame" x="233" y="11" width="57" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zcv-pZ-E3f">
+                                <rect key="frame" x="250" y="115" width="50" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="q1S-AP-EVK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tMO-Bs-4AB">
+                                <rect key="frame" x="250" y="229" width="50" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="auX-XI-bMv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7dG-5F-4d0">
+                                <rect key="frame" x="250" y="343" width="50" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="5cN-ao-bIf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="85j-Fb-NoS">
+                                <rect key="frame" x="20" y="177" width="222" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
+                                <state key="normal" title="00:01:00" backgroundImage="digitalClock.png">
+                                    <color key="titleColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="you-qQ-4e3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QOt-nX-rfI">
+                                <rect key="frame" x="250" y="185" width="50" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="tRC-cL-1uk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nZs-x2-FVg">
+                                <rect key="frame" x="20" y="289" width="222" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
+                                <state key="normal" title="00:01:00" backgroundImage="digitalClock.png">
+                                    <color key="titleColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="pX6-Ld-xAg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I15-xS-CYi">
+                                <rect key="frame" x="250" y="299" width="50" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="PWO-5K-hut"/>
+                                </connections>
+                            </button>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="nTq-vJ-gcy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="WeMP Timer" id="e5P-wc-gLB">
-                                        <barButtonItem key="leftBarButtonItem" title="Save" id="QPZ-vu-as1">
-                                            <connections>
-                                                <action selector="savePressed:" destination="DVA-QG-ILb" id="I9a-Rs-C9L"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="PbE-Hj-xj4">
-                                            <connections>
-                                                <action selector="editPressed:" destination="DVA-QG-ILb" id="yUf-va-aD3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="WeMP Timer" id="e5P-wc-gLB"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -228,9 +288,15 @@
                     <tabBarItem key="tabBarItem" title="Timer" image="timer.png" id="bqT-fH-G5n"/>
                     <navigationItem key="navigationItem" id="E3a-IP-ydn"/>
                     <connections>
-                        <outlet property="clockButton" destination="YbQ-1t-6e7" id="TDZ-wW-VCD"/>
-                        <outlet property="resetButton" destination="lBK-JR-2CW" id="wq2-bA-CnP"/>
-                        <outlet property="table" destination="5m3-Bt-oDO" id="Hb9-bJ-hBc"/>
+                        <outlet property="timer1" destination="YbQ-1t-6e7" id="Aiy-dR-oa3"/>
+                        <outlet property="timer2" destination="85j-Fb-NoS" id="0kR-R2-OFj"/>
+                        <outlet property="timer3" destination="nZs-x2-FVg" id="gM4-xc-JLb"/>
+                        <outletCollection property="timerEditor1" destination="lBK-JR-2CW" id="fDZ-fZ-tZV"/>
+                        <outletCollection property="timerEditor1" destination="Zcv-pZ-E3f" id="iQ4-H8-9qh"/>
+                        <outletCollection property="timerEditor2" destination="QOt-nX-rfI" id="jqF-HH-jdG"/>
+                        <outletCollection property="timerEditor2" destination="tMO-Bs-4AB" id="QI1-1K-fV8"/>
+                        <outletCollection property="timerEditor3" destination="I15-xS-CYi" id="I48-Tw-PLw"/>
+                        <outletCollection property="timerEditor3" destination="7dG-5F-4d0" id="SdE-tz-x2x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAG-1T-ZOg" sceneMemberID="firstResponder"/>
@@ -348,6 +414,52 @@
         <image name="stopwatch.png" width="20" height="20"/>
         <image name="timer.png" width="20" height="20"/>
     </resources>
+    <classes>
+        <class className="EditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="timerName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="shakeControlSwitchChange:"/>
+                <relationship kind="action" name="voiceControlSwitchChange:"/>
+                <relationship kind="outlet" name="shakeControlSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="voiceControlSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="StopwatchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StopwatchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="helpPressed:"/>
+                <relationship kind="action" name="resetPressed:"/>
+                <relationship kind="action" name="startButtonPressed:"/>
+                <relationship kind="outlet" name="clockButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarController.h"/>
+        </class>
+        <class className="TimerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editPressed:"/>
+                <relationship kind="action" name="resetPressed:"/>
+                <relationship kind="action" name="startButtonPressed:"/>
+                <relationship kind="outlet" name="timer1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timer2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timer3" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="timerEditor1" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="timerEditor2" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="timerEditor3" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
