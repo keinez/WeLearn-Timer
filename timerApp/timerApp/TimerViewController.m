@@ -327,7 +327,7 @@ numberOfRowsInComponent:(NSInteger)component
         timerName[activeTag] = self.editController.name;
     }
     else{
-        [timerName replaceObjectAtIndex:activeTag withObject:[NSString stringWithFormat:@"Timer %d", activeTag]];
+        [timerName replaceObjectAtIndex:activeTag withObject:[NSString stringWithFormat:@"Timer %d", activeTag+1]];
     }
     
     [self displayTime:clockTime[activeTag] at:activeTag];
