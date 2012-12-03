@@ -23,6 +23,12 @@
     int numActive;
 }
 
+@synthesize timer1Label = _timer1Label;
+@synthesize secLabel1 = _secLabel1;
+@synthesize timer2Label = _timer2Label;
+@synthesize secLabel2 = _secLabel2;
+@synthesize timer3Label = _timer3Label;
+@synthesize secLabel3 = _secLabel3;
 @synthesize timer1 = _timer1;
 @synthesize timer2 = _timer2;
 @synthesize timer3 = _timer3;
@@ -101,6 +107,12 @@
     [timers[1] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
     [timerEditors[2] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
     [timers[2] setValue:[NSNumber numberWithBool:YES] forKey:@"hidden"];
+    [self.timer2Label setHidden:YES];
+    [self.secLabel2 setHidden:YES];
+    [self.timer3Label setHidden:YES];
+    [self.secLabel3 setHidden:YES];
+    
+    [self.plusButton setHidden:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -125,6 +137,13 @@
     [self setTimerEditor2:nil];
     [self setTimerEditor3:nil];
     [self setPlusButton:nil];
+    [self setTimer1Label:nil];
+    [self setSecLabel1:nil];
+    [self setTimer2Label:nil];
+    [self setSecLabel2:nil];
+    [self setTimer3Label:nil];
+    [self setSecLabel3:nil];
+    [self setHelpButton:nil];
     [super viewDidUnload];
 }
 
@@ -208,16 +227,43 @@
     if (numActive == 1) {
         [timerEditors[1] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
         [timers[1] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
-        [self.plusButton setFrame:CGRectMake(103, 309, 57, 56)];
+        [self.timer2Label setHidden:NO];
+        [self.secLabel2 setHidden:NO];
+        [self.plusButton setFrame:CGRectMake(132, 309, 57, 56)];
         numActive++;
     }
     else if (numActive == 2) {
         [timerEditors[2] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
         [timers[2] setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
+        [self.timer3Label setHidden:NO];
+        [self.secLabel3 setHidden:NO];
         [self.plusButton setHidden:YES];
     }
 }
 
+- (IBAction)helpPressed:(id)sender {
+    NSString *imgFilepath = [[NSBundle mainBundle] pathForResource:@"TimerHelpOverlay" ofType:@"png"];
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:imgFilepath];
+    UIImageView *helpView = [[UIImageView alloc] initWithImage:img];
+    helpView.userInteractionEnabled = YES;
+    [helpView setTag:99];
+    
+    [self.view addSubview:helpView];
+    
+    UITapGestureRecognizer *tap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
+    [helpView addGestureRecognizer:tap];
+}
+
+-(void)imageTapped:(id)sender {
+    for (UIView *subView in self.view.subviews)
+    {
+        if (subView.tag == 99)
+        {
+            [subView removeFromSuperview];
+        }
+    }
+}
 
 #pragma mark -
 #pragma mark Clock runner
@@ -346,6 +392,15 @@ numberOfRowsInComponent:(NSInteger)component
     
     if (self.editController.name != nil){
         timerName[activeTag] = self.editController.name;
+        if (activeTag == 0){
+            [self.timer1Label setText:timerName[activeTag]];
+        }
+        else if (activeTag == 1){
+            [self.timer2Label setText:timerName[activeTag]];
+        }
+        else if (activeTag == 2){
+            [self.timer3Label setText:timerName[activeTag]];
+        }
     }
     else{
         [timerName replaceObjectAtIndex:activeTag withObject:[NSString stringWithFormat:@"Timer %d", activeTag+1]];

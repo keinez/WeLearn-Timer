@@ -31,6 +31,20 @@
                                     <action selector="startButtonPressed:" destination="eiX-5n-5e9" eventType="touchUpInside" id="QBx-cf-lZ7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stopwatch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dna-Fn-mxB">
+                                <rect key="frame" x="53" y="83" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nyM-Ig-Zo6">
+                                <rect key="frame" x="245" y="145" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vCv-cT-2gd">
                                 <rect key="frame" x="49" y="211" width="223" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -215,7 +229,7 @@
                                     <action selector="editPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="5cN-ao-bIf"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="85j-Fb-NoS">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="85j-Fb-NoS">
                                 <rect key="frame" x="20" y="177" width="222" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
@@ -245,7 +259,7 @@
                                     <action selector="resetPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="tRC-cL-1uk"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nZs-x2-FVg">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nZs-x2-FVg">
                                 <rect key="frame" x="20" y="289" width="222" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
@@ -279,11 +293,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="WeMP Timer" id="e5P-wc-gLB"/>
+                                    <navigationItem title="WeMP Timer" id="e5P-wc-gLB">
+                                        <barButtonItem key="leftBarButtonItem" title="Help" id="6bt-J9-A06">
+                                            <connections>
+                                                <action selector="helpPressed:" destination="DVA-QG-ILb" id="cgS-pv-wUh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fjW-5E-d6W">
-                                <rect key="frame" x="103" y="197" width="57" height="56"/>
+                            <button hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fjW-5E-d6W">
+                                <rect key="frame" x="132" y="197" width="57" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="plusButton.png">
@@ -297,16 +317,65 @@
                                     <action selector="plusPressed:" destination="DVA-QG-ILb" eventType="touchUpInside" id="Cs0-UE-l1T"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Timer 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PqI-Y9-fAK">
+                                <rect key="frame" x="41" y="299" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Timer 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MEL-st-9pD">
+                                <rect key="frame" x="41" y="185" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Timer 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aIj-UH-FJn">
+                                <rect key="frame" x="41" y="73" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Ij-2p-BMD">
+                                <rect key="frame" x="196" y="123" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0zI-K6-PI9">
+                                <rect key="frame" x="196" y="237" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W47-fR-EGw">
+                                <rect key="frame" x="196" y="351" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.15866238069999999" green="0.54205197699999996" blue="0.087861601499999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer" image="timer.png" id="bqT-fH-G5n"/>
                     <navigationItem key="navigationItem" id="E3a-IP-ydn"/>
                     <connections>
+                        <outlet property="helpButton" destination="6bt-J9-A06" id="dyK-As-Dcd"/>
                         <outlet property="plusButton" destination="fjW-5E-d6W" id="slo-AW-3JR"/>
+                        <outlet property="secLabel1" destination="1Ij-2p-BMD" id="m5m-XX-SYO"/>
+                        <outlet property="secLabel2" destination="0zI-K6-PI9" id="Vq5-xi-sGm"/>
+                        <outlet property="secLabel3" destination="W47-fR-EGw" id="zeJ-GA-26d"/>
                         <outlet property="timer1" destination="YbQ-1t-6e7" id="Aiy-dR-oa3"/>
+                        <outlet property="timer1Label" destination="aIj-UH-FJn" id="3cv-SM-ftr"/>
                         <outlet property="timer2" destination="85j-Fb-NoS" id="0kR-R2-OFj"/>
+                        <outlet property="timer2Label" destination="MEL-st-9pD" id="Arh-Bf-IKP"/>
                         <outlet property="timer3" destination="nZs-x2-FVg" id="gM4-xc-JLb"/>
+                        <outlet property="timer3Label" destination="PqI-Y9-fAK" id="UpR-Fo-xCs"/>
                         <outletCollection property="timerEditor1" destination="lBK-JR-2CW" id="fDZ-fZ-tZV"/>
                         <outletCollection property="timerEditor1" destination="Zcv-pZ-E3f" id="iQ4-H8-9qh"/>
                         <outletCollection property="timerEditor2" destination="QOt-nX-rfI" id="jqF-HH-jdG"/>
