@@ -50,7 +50,7 @@
             [self startButtonPressed:nil];
             return;
         }
-        if([hypothesis isEqualToString:@"LAP"] || [hypothesis isEqualToString:@"SAVE"]) {
+        if([hypothesis isEqualToString:@"SAVE"] || [hypothesis isEqualToString:@"SPLIT"]) {
             // save lap time
             [self resetPressed:nil];
             return;
@@ -124,7 +124,7 @@
     
     if (!self.timerRunning){
         self.timerRunning = YES;
-        [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
+        [self.lapButton setTitle:@"Split" forState:UIControlStateNormal];
         self.lapButton.hidden = NO;
         addClock = YES;
         self.reference = [[NSDate alloc] init];
@@ -219,20 +219,4 @@
     
     return cell;
 }
-
-/**************************Tab Bar Delegate Methods************
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    if ([item.title isEqualToString: @"Timer"]){
-        [self.navigationController popToRootViewControllerAnimated:NO]
-        ;
-    }
-    else if ([item.title isEqualToString: @"Settings"]){
-        //[self performSegueWithIdentifier:@"TimerSegue" sender:self];
-        [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:[[SettingsViewController alloc] init] animated:NO]
-        ;
-    }
-}*/
-
 @end
