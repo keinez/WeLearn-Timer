@@ -43,26 +43,31 @@
 
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
-    NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
+    NSLog(@"Received for stopwatch");
+    NSArray *stringArray = [hypothesis componentsSeparatedByString: @" "];
+    int last = [stringArray count]-1;
+    NSString *last_string = [stringArray objectAtIndex:last];
+    NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@ and last is %@", hypothesis, recognitionScore, utteranceID, last_string); // Log it.
+    
     if (self.timerRunning){
-        if([hypothesis isEqualToString:@"STOP"] || [hypothesis isEqualToString:@"END"]) {
+        if([last_string isEqualToString:@"STOP"] || [last_string isEqualToString:@"END"]) {
             // stop clock
             [self startButtonPressed:nil];
             return;
         }
-        if([hypothesis isEqualToString:@"SAVE"] || [hypothesis isEqualToString:@"SPLIT"]) {
+        if([last_string isEqualToString:@"SAVE"] || [last_string isEqualToString:@"SPLIT"]) {
             // save lap time
             [self resetPressed:nil];
             return;
         }
     }
     else {
-        if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
+        if([last_string isEqualToString:@"START"] || [last_string isEqualToString:@"GO"]) {
             // start clock
             [self startButtonPressed:nil];
             return;
         }
-        if([hypothesis isEqualToString:@"RESET"] && !self.lapButton.isHidden && [self.lapButton.titleLabel.text isEqualToString:@"Reset"]) {
+        if([last_string isEqualToString:@"RESET"] && !self.lapButton.isHidden && [self.lapButton.titleLabel.text isEqualToString:@"Reset"]) {
             // reset clock
             [self resetPressed:nil];
             return;

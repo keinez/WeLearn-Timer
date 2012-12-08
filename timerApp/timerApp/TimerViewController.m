@@ -57,12 +57,16 @@
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
     NSLog(@"Received for timer");
-    NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID); // Log it.
+    NSArray *stringArray = [hypothesis componentsSeparatedByString: @" "];
+    int last = [stringArray count]-1;
+    NSString *last_string = [stringArray objectAtIndex:last];
+    NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@ and last is %@", hypothesis, recognitionScore, utteranceID, last_string); // Log it.
+    
     
     int i;
     
     if (clockRunning) {
-        if([hypothesis isEqualToString:@"STOP"] || [hypothesis isEqualToString:@"END"]) {
+        if([last_string isEqualToString:@"STOP"] || [last_string isEqualToString:@"END"]) {
             // stop clock
             for (i=0; i<numActive; ++i) {
                 [self startButtonPressed:timers[i]];
@@ -71,7 +75,7 @@
         }
     }
     else {
-        if([hypothesis isEqualToString:@"START"] || [hypothesis isEqualToString:@"GO"]) {
+        if([last_string isEqualToString:@"START"] || [last_string isEqualToString:@"GO"]) {
             // start clock
             for (i=0; i<numActive; ++i) {
                 [self startButtonPressed:timers[i]];
@@ -79,7 +83,7 @@
             
             return;
         }
-        if([hypothesis isEqualToString:@"RESET"]) {
+        if([last_string isEqualToString:@"RESET"]) {
             // save clock
             [self resetPressed:nil];
             return;
