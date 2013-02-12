@@ -74,6 +74,9 @@
         }
     }
     
+    if ([last_string isEqualToString:@"TIMER"]) {
+        [self.tabBarController setSelectedIndex:2];
+    }
 }
 
 

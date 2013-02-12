@@ -56,24 +56,26 @@ static Pocketsphinx *pocketsphinx = nil;
     
     // Voice command list for stopwatch
     NSArray *stopwatchArray = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects: // All capital letters.
-                                                             @"GO",
-                                                             @"START",
-                                                             @"STOP",
-                                                             @"END",
-                                                             @"SAVE",
-                                                             @"SPLIT",
-                                                             @"RESET",
-                                                             nil]];
-    
-    // Voice command list for timer
-    NSArray *timerArray = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects: // All capital letters.
                                                               @"GO",
                                                               @"START",
                                                               @"STOP",
                                                               @"END",
                                                               @"SAVE",
+                                                              @"SPLIT",
                                                               @"RESET",
+                                                              @"TIMER",
                                                               nil]];
+    
+    // Voice command list for timer
+    NSArray *timerArray = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects: // All capital letters.
+                                                          @"GO",
+                                                          @"START",
+                                                          @"STOP",
+                                                          @"END",
+                                                          @"SAVE",
+                                                          @"RESET",
+                                                          @"STOPWATCH",
+                                                          nil]];
     
     
     LanguageModelGenerator *stopwatchModelGenerator = [[LanguageModelGenerator alloc] init];
